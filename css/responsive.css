@@ -1,0 +1,3 @@
+@media(max-width:800px){body{display:block}.menu{display:block;position:fixed;top:.5rem;inset-inline-start:.5rem;z-index:20}
+#side{position:fixed;top:0;inset-inline-start:0;z-index:10;transform:translateX(-100%);transition:transform .25s}[dir=rtl] #side{transform:translateX(100%)}#side.open{transform:none!important}
+main{padding:3.5rem 1rem 1rem}.hero h1{font-size:1.8rem}}
