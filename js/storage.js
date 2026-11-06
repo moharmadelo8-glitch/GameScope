@@ -1,0 +1,2 @@
+const S={get:(k,d)=>{try{const v=localStorage.getItem('gs_'+k);return v===null?d:JSON.parse(v)}catch{return d}},set:(k,v)=>{try{localStorage.setItem('gs_'+k,JSON.stringify(v))}catch{}}};
+const dl=(n,o)=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(o,null,2)],{type:'application/json'}));a.download=n;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
