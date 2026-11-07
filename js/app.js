@@ -20,7 +20,7 @@ view(`<section class="hero"><h1>${t('tagline')}</h1><p class="mut">${t('checkPc'
 <div class="banner">${esc(DB.meta.notice)}</div><h2>${t('recent')}</h2>${rv.length?grid(rv,activeDev()):empty(t('noGames'))}`)};
 PAGES.favorites=()=>{const l=S.get('favs',[]).map(DB.game).filter(Boolean);view(`<h1>${t('favorites')}</h1>${l.length?grid(l,activeDev()):empty(t('noGames'))}`)};
 const REQ={ram:t('ram'),vram:t('vram'),storage:t('storage'),cpu:t('cpu'),gpu:t('gpu'),socTier:t('chipset'),os:t('os')};
-PAGES.game=id=>{const g=DB.game(id);if(!g)return view(empty(t('gameNotFound'))+'<div class="empty"><a class="btn" href="#library">${t('backLibrary')}</a></div>');
+PAGES.game=id=>{const g=DB.game(id);if(!g)return view(empty(t('gameNotFound'))+`<div class="empty"><a class="btn" href="#library">${t('backLibrary')}</a></div>`);
 S.set('recent',[id,...S.get('recent',[]).filter(x=>x!==id)].slice(0,8));const d=activeDev(),r=d&&Compat.check(g,d);
 const rq=q=>q?`<ul>${Object.entries(q).map(([k,v])=>`<li>${REQ[k]||k}: ${[].concat(v).join(', ')}</li>`).join('')}</ul>`:'<p class="mut">Insufficient Data</p>';
 const mob=g.mobile?Object.entries(g.mobile).map(([k,v])=>`<p><b>${pl(k)}</b>: ${Object.keys(v).length?Object.entries(v).map(([a,b])=>`${a} ${b}`).join(', '):t('insufficient')}</p>`).join(''):'';
