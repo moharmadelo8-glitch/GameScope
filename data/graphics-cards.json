@@ -1,1 +1,278 @@
-[{"id":"uhd","name":"Intel UHD Graphics 630","tier":1,"vram":0},{"id":"gtx660","name":"NVIDIA GeForce GTX 660","tier":2,"vram":2},{"id":"gtx770","name":"NVIDIA GeForce GTX 770","tier":3,"vram":2},{"id":"gtx970","name":"NVIDIA GeForce GTX 970","tier":4,"vram":4},{"id":"gtx1650","name":"NVIDIA GeForce GTX 1650","tier":4,"vram":4},{"id":"gtx1060","name":"NVIDIA GeForce GTX 1060 6GB","tier":5,"vram":6},{"id":"rx580","name":"AMD Radeon RX 580","tier":5,"vram":8},{"id":"rtx2060","name":"NVIDIA GeForce RTX 2060","tier":6,"vram":6},{"id":"rtx3060","name":"NVIDIA GeForce RTX 3060","tier":7,"vram":12},{"id":"rx6600","name":"AMD Radeon RX 6600","tier":7,"vram":8},{"id":"rtx4060","name":"NVIDIA GeForce RTX 4060","tier":8,"vram":8},{"id":"rtx4070","name":"NVIDIA GeForce RTX 4070","tier":9,"vram":12}]
+[
+  {
+    "id": "uhd",
+    "name": "Intel UHD Graphics 630",
+    "tier": 1,
+    "vram": 0
+  },
+  {
+    "id": "gtx660",
+    "name": "NVIDIA GeForce GTX 660",
+    "tier": 2,
+    "vram": 2
+  },
+  {
+    "id": "gtx770",
+    "name": "NVIDIA GeForce GTX 770",
+    "tier": 3,
+    "vram": 2
+  },
+  {
+    "id": "gtx970",
+    "name": "NVIDIA GeForce GTX 970",
+    "tier": 4,
+    "vram": 4
+  },
+  {
+    "id": "gtx1650",
+    "name": "NVIDIA GeForce GTX 1650",
+    "tier": 4,
+    "vram": 4
+  },
+  {
+    "id": "gtx1060",
+    "name": "NVIDIA GeForce GTX 1060 6GB",
+    "tier": 5,
+    "vram": 6
+  },
+  {
+    "id": "rx580",
+    "name": "AMD Radeon RX 580",
+    "tier": 5,
+    "vram": 8
+  },
+  {
+    "id": "rtx2060",
+    "name": "NVIDIA GeForce RTX 2060",
+    "tier": 6,
+    "vram": 6
+  },
+  {
+    "id": "rtx3060",
+    "name": "NVIDIA GeForce RTX 3060",
+    "tier": 7,
+    "vram": 12
+  },
+  {
+    "id": "rx6600",
+    "name": "AMD Radeon RX 6600",
+    "tier": 7,
+    "vram": 8
+  },
+  {
+    "id": "rtx4060",
+    "name": "NVIDIA GeForce RTX 4060",
+    "tier": 8,
+    "vram": 8
+  },
+  {
+    "id": "rtx4070",
+    "name": "NVIDIA GeForce RTX 4070",
+    "tier": 9,
+    "vram": 12
+  },
+  {
+    "id": "gtx1050ti",
+    "name": "NVIDIA GeForce GTX 1050 Ti",
+    "tier": 3,
+    "vram": 4
+  },
+  {
+    "id": "gtx1070",
+    "name": "NVIDIA GeForce GTX 1070",
+    "tier": 5,
+    "vram": 8
+  },
+  {
+    "id": "gtx1080ti",
+    "name": "NVIDIA GeForce GTX 1080 Ti",
+    "tier": 6,
+    "vram": 11
+  },
+  {
+    "id": "gtx1660s",
+    "name": "NVIDIA GeForce GTX 1660 SUPER",
+    "tier": 5,
+    "vram": 6
+  },
+  {
+    "id": "rtx2060s",
+    "name": "NVIDIA GeForce RTX 2060 SUPER",
+    "tier": 6,
+    "vram": 8
+  },
+  {
+    "id": "rtx2070",
+    "name": "NVIDIA GeForce RTX 2070",
+    "tier": 6,
+    "vram": 8
+  },
+  {
+    "id": "rtx2080",
+    "name": "NVIDIA GeForce RTX 2080",
+    "tier": 7,
+    "vram": 8
+  },
+  {
+    "id": "rtx3050",
+    "name": "NVIDIA GeForce RTX 3050 8GB",
+    "tier": 5,
+    "vram": 8
+  },
+  {
+    "id": "rtx3060ti",
+    "name": "NVIDIA GeForce RTX 3060 Ti",
+    "tier": 8,
+    "vram": 8
+  },
+  {
+    "id": "rtx3070",
+    "name": "NVIDIA GeForce RTX 3070",
+    "tier": 8,
+    "vram": 8
+  },
+  {
+    "id": "rtx3080",
+    "name": "NVIDIA GeForce RTX 3080",
+    "tier": 9,
+    "vram": 10
+  },
+  {
+    "id": "rtx3090",
+    "name": "NVIDIA GeForce RTX 3090",
+    "tier": 10,
+    "vram": 24
+  },
+  {
+    "id": "rtx4060ti",
+    "name": "NVIDIA GeForce RTX 4060 Ti",
+    "tier": 8,
+    "vram": 8
+  },
+  {
+    "id": "rtx4070s",
+    "name": "NVIDIA GeForce RTX 4070 SUPER",
+    "tier": 9,
+    "vram": 12
+  },
+  {
+    "id": "rtx4070tis",
+    "name": "NVIDIA GeForce RTX 4070 Ti SUPER",
+    "tier": 10,
+    "vram": 16
+  },
+  {
+    "id": "rtx4080s",
+    "name": "NVIDIA GeForce RTX 4080 SUPER",
+    "tier": 10,
+    "vram": 16
+  },
+  {
+    "id": "rtx4090",
+    "name": "NVIDIA GeForce RTX 4090",
+    "tier": 10,
+    "vram": 24
+  },
+  {
+    "id": "rx5600xt",
+    "name": "AMD Radeon RX 5600 XT",
+    "tier": 5,
+    "vram": 6
+  },
+  {
+    "id": "rx5700xt",
+    "name": "AMD Radeon RX 5700 XT",
+    "tier": 6,
+    "vram": 8
+  },
+  {
+    "id": "rx6600xt",
+    "name": "AMD Radeon RX 6600 XT",
+    "tier": 7,
+    "vram": 8
+  },
+  {
+    "id": "rx6650xt",
+    "name": "AMD Radeon RX 6650 XT",
+    "tier": 7,
+    "vram": 8
+  },
+  {
+    "id": "rx6700xt",
+    "name": "AMD Radeon RX 6700 XT",
+    "tier": 8,
+    "vram": 12
+  },
+  {
+    "id": "rx6750xt",
+    "name": "AMD Radeon RX 6750 XT",
+    "tier": 8,
+    "vram": 12
+  },
+  {
+    "id": "rx6800xt",
+    "name": "AMD Radeon RX 6800 XT",
+    "tier": 9,
+    "vram": 16
+  },
+  {
+    "id": "rx7600",
+    "name": "AMD Radeon RX 7600",
+    "tier": 7,
+    "vram": 8
+  },
+  {
+    "id": "rx7600xt",
+    "name": "AMD Radeon RX 7600 XT",
+    "tier": 8,
+    "vram": 16
+  },
+  {
+    "id": "rx7700xt",
+    "name": "AMD Radeon RX 7700 XT",
+    "tier": 9,
+    "vram": 12
+  },
+  {
+    "id": "rx7800xt",
+    "name": "AMD Radeon RX 7800 XT",
+    "tier": 9,
+    "vram": 16
+  },
+  {
+    "id": "rx7900xt",
+    "name": "AMD Radeon RX 7900 XT",
+    "tier": 10,
+    "vram": 20
+  },
+  {
+    "id": "rx7900xtx",
+    "name": "AMD Radeon RX 7900 XTX",
+    "tier": 10,
+    "vram": 24
+  },
+  {
+    "id": "arc-a580",
+    "name": "Intel Arc A580",
+    "tier": 5,
+    "vram": 8
+  },
+  {
+    "id": "arc-a750",
+    "name": "Intel Arc A750",
+    "tier": 6,
+    "vram": 8
+  },
+  {
+    "id": "arc-a770",
+    "name": "Intel Arc A770 16GB",
+    "tier": 7,
+    "vram": 16
+  },
+  {
+    "id": "arc-b580",
+    "name": "Intel Arc B580",
+    "tier": 8,
+    "vram": 12
+  }
+]
