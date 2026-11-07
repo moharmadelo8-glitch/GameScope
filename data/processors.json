@@ -1,1 +1,167 @@
-[{"id":"r3-3200g","name":"AMD Ryzen 3 3200G","tier":3},{"id":"i3-10100","name":"Intel Core i3-10100","tier":4},{"id":"i5-8400","name":"Intel Core i5-8400","tier":5},{"id":"i5-10400","name":"Intel Core i5-10400","tier":6},{"id":"r5-3600","name":"AMD Ryzen 5 3600","tier":6},{"id":"i5-12400","name":"Intel Core i5-12400","tier":7},{"id":"r5-5600","name":"AMD Ryzen 5 5600","tier":7},{"id":"i7-9700k","name":"Intel Core i7-9700K","tier":7},{"id":"r7-5800x","name":"AMD Ryzen 7 5800X","tier":8},{"id":"i7-12700k","name":"Intel Core i7-12700K","tier":9},{"id":"r7-7700x","name":"AMD Ryzen 7 7700X","tier":9}]
+[
+  {
+    "id": "r3-3200g",
+    "name": "AMD Ryzen 3 3200G",
+    "tier": 3
+  },
+  {
+    "id": "i3-10100",
+    "name": "Intel Core i3-10100",
+    "tier": 4
+  },
+  {
+    "id": "i5-8400",
+    "name": "Intel Core i5-8400",
+    "tier": 5
+  },
+  {
+    "id": "i5-10400",
+    "name": "Intel Core i5-10400",
+    "tier": 6
+  },
+  {
+    "id": "r5-3600",
+    "name": "AMD Ryzen 5 3600",
+    "tier": 6
+  },
+  {
+    "id": "i5-12400",
+    "name": "Intel Core i5-12400",
+    "tier": 7
+  },
+  {
+    "id": "r5-5600",
+    "name": "AMD Ryzen 5 5600",
+    "tier": 7
+  },
+  {
+    "id": "i7-9700k",
+    "name": "Intel Core i7-9700K",
+    "tier": 7
+  },
+  {
+    "id": "r7-5800x",
+    "name": "AMD Ryzen 7 5800X",
+    "tier": 8
+  },
+  {
+    "id": "i7-12700k",
+    "name": "Intel Core i7-12700K",
+    "tier": 9
+  },
+  {
+    "id": "r7-7700x",
+    "name": "AMD Ryzen 7 7700X",
+    "tier": 9
+  },
+  {
+    "id": "r5-5500",
+    "name": "AMD Ryzen 5 5500",
+    "tier": 6
+  },
+  {
+    "id": "r5-5600x",
+    "name": "AMD Ryzen 5 5600X",
+    "tier": 7
+  },
+  {
+    "id": "r7-5700x",
+    "name": "AMD Ryzen 7 5700X",
+    "tier": 8
+  },
+  {
+    "id": "r7-5700x3d",
+    "name": "AMD Ryzen 7 5700X3D",
+    "tier": 9
+  },
+  {
+    "id": "r5-7500f",
+    "name": "AMD Ryzen 5 7500F",
+    "tier": 8
+  },
+  {
+    "id": "r5-7600",
+    "name": "AMD Ryzen 5 7600",
+    "tier": 8
+  },
+  {
+    "id": "r7-7700",
+    "name": "AMD Ryzen 7 7700",
+    "tier": 9
+  },
+  {
+    "id": "r7-7800x3d",
+    "name": "AMD Ryzen 7 7800X3D",
+    "tier": 10
+  },
+  {
+    "id": "r9-7900x",
+    "name": "AMD Ryzen 9 7900X",
+    "tier": 10
+  },
+  {
+    "id": "r5-9600x",
+    "name": "AMD Ryzen 5 9600X",
+    "tier": 9
+  },
+  {
+    "id": "r7-9700x",
+    "name": "AMD Ryzen 7 9700X",
+    "tier": 10
+  },
+  {
+    "id": "r7-9800x3d",
+    "name": "AMD Ryzen 7 9800X3D",
+    "tier": 10
+  },
+  {
+    "id": "i5-11400f",
+    "name": "Intel Core i5-11400F",
+    "tier": 6
+  },
+  {
+    "id": "i5-12400f",
+    "name": "Intel Core i5-12400F",
+    "tier": 7
+  },
+  {
+    "id": "i5-13400f",
+    "name": "Intel Core i5-13400F",
+    "tier": 8
+  },
+  {
+    "id": "i5-13600k",
+    "name": "Intel Core i5-13600K",
+    "tier": 9
+  },
+  {
+    "id": "i5-14400f",
+    "name": "Intel Core i5-14400F",
+    "tier": 8
+  },
+  {
+    "id": "i5-14600k",
+    "name": "Intel Core i5-14600K",
+    "tier": 9
+  },
+  {
+    "id": "i7-12700f",
+    "name": "Intel Core i7-12700F",
+    "tier": 9
+  },
+  {
+    "id": "i7-13700k",
+    "name": "Intel Core i7-13700K",
+    "tier": 10
+  },
+  {
+    "id": "i7-14700k",
+    "name": "Intel Core i7-14700K",
+    "tier": 10
+  },
+  {
+    "id": "i9-14900k",
+    "name": "Intel Core i9-14900K",
+    "tier": 10
+  }
+]
