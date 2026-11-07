@@ -1,0 +1,202 @@
+[
+  {
+    "id": "sd-660",
+    "name": "Qualcomm Snapdragon 660",
+    "tier": 3
+  },
+  {
+    "id": "sd-680",
+    "name": "Qualcomm Snapdragon 680",
+    "tier": 3
+  },
+  {
+    "id": "sd-685",
+    "name": "Qualcomm Snapdragon 685",
+    "tier": 3
+  },
+  {
+    "id": "sd-695",
+    "name": "Qualcomm Snapdragon 695",
+    "tier": 4
+  },
+  {
+    "id": "sd-720g",
+    "name": "Qualcomm Snapdragon 720G",
+    "tier": 4
+  },
+  {
+    "id": "sd-732g",
+    "name": "Qualcomm Snapdragon 732G",
+    "tier": 4
+  },
+  {
+    "id": "sd-778g",
+    "name": "Qualcomm Snapdragon 778G",
+    "tier": 6
+  },
+  {
+    "id": "sd-7sgen2",
+    "name": "Qualcomm Snapdragon 7s Gen 2",
+    "tier": 6
+  },
+  {
+    "id": "sd-7gen3",
+    "name": "Qualcomm Snapdragon 7 Gen 3",
+    "tier": 7
+  },
+  {
+    "id": "sd-7plusgen2",
+    "name": "Qualcomm Snapdragon 7+ Gen 2",
+    "tier": 8
+  },
+  {
+    "id": "sd-8gen1",
+    "name": "Qualcomm Snapdragon 8 Gen 1",
+    "tier": 8
+  },
+  {
+    "id": "sd-8plusgen1",
+    "name": "Qualcomm Snapdragon 8+ Gen 1",
+    "tier": 9
+  },
+  {
+    "id": "sd-8gen2",
+    "name": "Qualcomm Snapdragon 8 Gen 2",
+    "tier": 9
+  },
+  {
+    "id": "sd-8gen3",
+    "name": "Qualcomm Snapdragon 8 Gen 3",
+    "tier": 10
+  },
+  {
+    "id": "sd-8elite",
+    "name": "Qualcomm Snapdragon 8 Elite",
+    "tier": 10
+  },
+  {
+    "id": "helio-g80",
+    "name": "MediaTek Helio G80",
+    "tier": 3
+  },
+  {
+    "id": "helio-g85",
+    "name": "MediaTek Helio G85",
+    "tier": 3
+  },
+  {
+    "id": "helio-g88",
+    "name": "MediaTek Helio G88",
+    "tier": 3
+  },
+  {
+    "id": "helio-g91",
+    "name": "MediaTek Helio G91",
+    "tier": 3
+  },
+  {
+    "id": "helio-g95",
+    "name": "MediaTek Helio G95",
+    "tier": 4
+  },
+  {
+    "id": "helio-g96",
+    "name": "MediaTek Helio G96",
+    "tier": 4
+  },
+  {
+    "id": "helio-g99",
+    "name": "MediaTek Helio G99",
+    "tier": 4
+  },
+  {
+    "id": "dim-6100",
+    "name": "MediaTek Dimensity 6100+",
+    "tier": 4
+  },
+  {
+    "id": "dim-700",
+    "name": "MediaTek Dimensity 700",
+    "tier": 4
+  },
+  {
+    "id": "dim-810",
+    "name": "MediaTek Dimensity 810",
+    "tier": 4
+  },
+  {
+    "id": "dim-1080",
+    "name": "MediaTek Dimensity 1080",
+    "tier": 5
+  },
+  {
+    "id": "dim-7050",
+    "name": "MediaTek Dimensity 7050",
+    "tier": 5
+  },
+  {
+    "id": "dim-7200",
+    "name": "MediaTek Dimensity 7200",
+    "tier": 6
+  },
+  {
+    "id": "dim-8200",
+    "name": "MediaTek Dimensity 8200",
+    "tier": 8
+  },
+  {
+    "id": "dim-8300",
+    "name": "MediaTek Dimensity 8300",
+    "tier": 8
+  },
+  {
+    "id": "dim-9200",
+    "name": "MediaTek Dimensity 9200",
+    "tier": 9
+  },
+  {
+    "id": "dim-9300",
+    "name": "MediaTek Dimensity 9300",
+    "tier": 10
+  },
+  {
+    "id": "exynos-1280",
+    "name": "Samsung Exynos 1280",
+    "tier": 4
+  },
+  {
+    "id": "exynos-1380",
+    "name": "Samsung Exynos 1380",
+    "tier": 5
+  },
+  {
+    "id": "exynos-1480",
+    "name": "Samsung Exynos 1480",
+    "tier": 6
+  },
+  {
+    "id": "exynos-2200",
+    "name": "Samsung Exynos 2200",
+    "tier": 8
+  },
+  {
+    "id": "exynos-2400",
+    "name": "Samsung Exynos 2400",
+    "tier": 9
+  },
+  {
+    "id": "tensor-g2",
+    "name": "Google Tensor G2",
+    "tier": 6
+  },
+  {
+    "id": "tensor-g3",
+    "name": "Google Tensor G3",
+    "tier": 7
+  },
+  {
+    "id": "tensor-g4",
+    "name": "Google Tensor G4",
+    "tier": 8
+  }
+]
