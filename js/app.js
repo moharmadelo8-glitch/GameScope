@@ -4,15 +4,15 @@ const cover=g=>{const h=[...g.name].reduce((a,c)=>a+c.charCodeAt(0),0)%360;retur
 const card=(g,d)=>{const r=d&&Compat.check(g,d),f=S.get('favs',[]).includes(g.id);
 return `<article class="card"><img src="${cover(g)}" alt="${esc(g.name)} placeholder cover" loading="lazy"><div class="cb"><h3>${esc(g.name)}</h3><p class="mut">${esc(g.genre)} · ${g.free?'Free':'Paid'}</p>${r?`<span class="badge ${STATUS[r.status][1]}">${STATUS[r.status][0]}</span><p class="mut">${esc(r.bott)}</p>`:''}<div class="row"><a class="btn" href="#game/${g.id}">${t('details')}</a><button class="btn" data-a="fav" data-id="${g.id}" aria-label="Toggle favorite" title="Favorite">${f?'★':'☆'}</button></div></div></article>`};
 const grid=(l,d)=>`<div class="grid">${l.map(g=>card(g,d)).join('')}</div>`;
-const F={q:'',genre:'',plat:'',price:'',st:''};let CUR=null;
+const F={q:'',genre:'',plat:'',price:'',st:''};let CUR=null,CUR_ONLY=false;
 const sel=(f,l,o)=>`<select data-f="${f}" aria-label="${l}"><option value="">${l}</option>${o.map(([v,n])=>`<option value="${v}" ${F[f]===v?'selected':''}>${esc(n)}</option>`).join('')}</select>`;
-function body(){const d=CUR,L=DB.games.filter(g=>(!F.q||g.name.toLowerCase().includes(F.q.toLowerCase()))&&(!F.genre||g.genre===F.genre)&&(!F.plat||g.platforms.includes(F.plat))&&(!F.price||(F.price==='free')===g.free)&&(!F.st||!d||Compat.check(g,d).status===F.st));
+function body(){const d=CUR,platform=d?(d.type==='console'?(Compat.fam[d.specs.model]||''):d.type):'',rank={full:0,adjust:1,below:2,unknown:3};let L=DB.games.filter(g=>(!F.q||g.name.toLowerCase().includes(F.q.toLowerCase()))&&(!F.genre||g.genre===F.genre)&&(!F.plat||g.platforms.includes(F.plat))&&(!CUR_ONLY||!d||g.platforms.includes(platform))&&(!F.price||(F.price==='free')===g.free)&&(!F.st||!d||Compat.check(g,d).status===F.st));L.sort((a,b)=>{if(d){const x=rank[Compat.check(a,d).status],y=rank[Compat.check(b,d).status];if(x!==y)return x-y}return a.name.localeCompare(b.name)});
 let h='';if(d){const c=counts(d);h=`<div class="stats"><div class="card"><b>${c.full}</b>Compatible</div><div class="card"><b>${c.adjust}</b>Playable</div><div class="card"><b>${c.below+c.unknown}</b>Unsupported / unknown</div></div>`}
 return h+(L.length?grid(L,d):empty('No games match your filters. Clear a filter to see more.'))}
-function listPage(d,title){CUR=d;const gs=[...new Set(DB.games.map(g=>g.genre))].map(x=>[x,x]);
+function listPage(d,title,deviceOnly=false){CUR=d;CUR_ONLY=deviceOnly;const gs=[...new Set(DB.games.map(g=>g.genre))].map(x=>[x,x]);
 view(`<h1>${title}</h1>${d?`<p class="mut">Device: <b>${esc(d.name)}</b> <button class="btn" data-a="report">Export report (JSON)</button></p>`:''}
 <div class="filters"><input data-f="q" type="search" placeholder="Search games" aria-label="Search games" value="${esc(F.q)}">${sel('genre','Genre',gs)}${sel('plat','Platform',Object.entries(PLAT))}${sel('price','Price',[['free','Free'],['paid','Paid']])}${d?sel('st','Status',Object.entries(STATUS).map(([k,v])=>[k,v[0]])):''}</div><div id="res">${body()}</div>`)}
-PAGES.find=()=>{const d=activeDev();if(!d)return view(`<h1>${t('find')}</h1>${empty('Choose a device first.')}<div class="empty"><a class="btn pri" href="#select">${t('select')}</a></div>`);listPage(d,t('find'))};
+PAGES.find=()=>{const d=activeDev();if(!d)return view(`<h1>${t('find')}</h1>${empty('Choose a device first.')}<div class="empty"><a class="btn pri" href="#select">${t('select')}</a></div>`);listPage(d,t('find'),true)};
 PAGES.library=()=>listPage(activeDev(),t('library'));
 PAGES.home=()=>{const rv=S.get('recent',[]).map(DB.game).filter(Boolean);
 view(`<section class="hero"><h1>${t('tagline')}</h1><p class="mut">Check PC, Android, iPhone and console compatibility. No account needed.</p><a class="btn pri" href="#select">${t('cta')}</a></section>
