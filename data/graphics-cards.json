@@ -274,5 +274,101 @@
     "name": "Intel Arc B580",
     "tier": 8,
     "vram": 12
+  },
+  {
+    "id": "rtx5050",
+    "name": "NVIDIA GeForce RTX 5050",
+    "tier": 7,
+    "vram": 8
+  },
+  {
+    "id": "rtx5060",
+    "name": "NVIDIA GeForce RTX 5060",
+    "tier": 8,
+    "vram": 8
+  },
+  {
+    "id": "rtx5060ti8",
+    "name": "NVIDIA GeForce RTX 5060 Ti 8GB",
+    "tier": 8,
+    "vram": 8
+  },
+  {
+    "id": "rtx5060ti16",
+    "name": "NVIDIA GeForce RTX 5060 Ti 16GB",
+    "tier": 8,
+    "vram": 16
+  },
+  {
+    "id": "rtx5070",
+    "name": "NVIDIA GeForce RTX 5070",
+    "tier": 9,
+    "vram": 12
+  },
+  {
+    "id": "rtx5070ti",
+    "name": "NVIDIA GeForce RTX 5070 Ti",
+    "tier": 10,
+    "vram": 16
+  },
+  {
+    "id": "rtx5080",
+    "name": "NVIDIA GeForce RTX 5080",
+    "tier": 10,
+    "vram": 16
+  },
+  {
+    "id": "rtx5090",
+    "name": "NVIDIA GeForce RTX 5090",
+    "tier": 10,
+    "vram": 32
+  },
+  {
+    "id": "rx9050",
+    "name": "AMD Radeon RX 9050",
+    "tier": 6,
+    "vram": 8
+  },
+  {
+    "id": "rx9060",
+    "name": "AMD Radeon RX 9060",
+    "tier": 7,
+    "vram": 8
+  },
+  {
+    "id": "rx9060xt8",
+    "name": "AMD Radeon RX 9060 XT 8GB",
+    "tier": 8,
+    "vram": 8
+  },
+  {
+    "id": "rx9060xt16",
+    "name": "AMD Radeon RX 9060 XT 16GB",
+    "tier": 8,
+    "vram": 16
+  },
+  {
+    "id": "rx9070",
+    "name": "AMD Radeon RX 9070",
+    "tier": 9,
+    "vram": 16
+  },
+  {
+    "id": "rx9070gre",
+    "name": "AMD Radeon RX 9070 GRE",
+    "tier": 9,
+    "vram": 12
+  },
+  {
+    "id": "rx9070xt",
+    "name": "AMD Radeon RX 9070 XT",
+    "tier": 10,
+    "vram": 16
+  },
+  {
+    "id": "arc-b570",
+    "name": "Intel Arc B570",
+    "tier": 7,
+    "vram": 10
   }
 ]
