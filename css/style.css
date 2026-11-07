@@ -22,3 +22,5 @@ form label{display:block;margin:.7rem 0}form input,form select{width:100%;max-wi
 #toast{position:fixed;bottom:1rem;inset-inline-end:1rem;background:var(--pri);color:#fff;padding:.6rem 1rem;border-radius:8px;opacity:0;transition:opacity .3s;pointer-events:none}#toast.show{opacity:1}
 .menu{display:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* Device setup improvements */
+.spec-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 1rem;max-width:900px}.spec-grid label{min-width:0}.spec-grid input,.spec-grid select{width:100%;max-width:none}@media(max-width:600px){.spec-grid{grid-template-columns:1fr}}
