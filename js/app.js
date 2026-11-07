@@ -18,7 +18,7 @@ PAGES.home=()=>{const rv=S.get('recent',[]).map(DB.game).filter(Boolean);
 view(`<section class="hero"><h1>${t('tagline')}</h1><p class="mut">Check PC, Android, iPhone and console compatibility. No account needed.</p><a class="btn pri" href="#select">${t('cta')}</a></section>
 <div class="stats"><div class="card"><b>${DB.games.length}</b>games in database</div><div class="card"><b>${S.get('devices',[]).length}</b>saved devices</div><div class="card"><b>${S.get('favs',[]).length}</b>favorites</div></div>
 <div class="banner">${esc(DB.meta.notice)}</div><h2>${t('recent')}</h2>${rv.length?grid(rv,activeDev()):empty(t('noGames'))}`)};
-PAGES.favorites=()=>{const l=S.get('favs',[]).map(DB.game).filter(Boolean);view(`<h1>${t('favorites')}</h1>${l.length?grid(l,activeDev()):empty('${t('noGames')}')}`)};
+PAGES.favorites=()=>{const l=S.get('favs',[]).map(DB.game).filter(Boolean);view(`<h1>${t('favorites')}</h1>${l.length?grid(l,activeDev()):empty(t('noGames'))}`)};
 const REQ={ram:t('ram'),vram:t('vram'),storage:t('storage'),cpu:t('cpu'),gpu:t('gpu'),socTier:t('chipset'),os:t('os')};
 PAGES.game=id=>{const g=DB.game(id);if(!g)return view(empty('Game not found.')+'<div class="empty"><a class="btn" href="#library">Back to library</a></div>');
 S.set('recent',[id,...S.get('recent',[]).filter(x=>x!==id)].slice(0,8));const d=activeDev(),r=d&&Compat.check(g,d);
