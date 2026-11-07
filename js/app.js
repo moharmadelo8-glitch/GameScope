@@ -20,7 +20,7 @@ view(`<section class="hero"><h1>${t('tagline')}</h1><p class="mut">${t('checkPc'
 <div class="banner">${esc(DB.meta.notice)}</div><h2>${t('recent')}</h2>${rv.length?grid(rv,activeDev()):empty(t('noGames'))}`)};
 PAGES.favorites=()=>{const l=S.get('favs',[]).map(DB.game).filter(Boolean);view(`<h1>${t('favorites')}</h1>${l.length?grid(l,activeDev()):empty(t('noGames'))}`)};
 const REQ={ram:t('ram'),vram:t('vram'),storage:t('storage'),cpu:t('cpu'),gpu:t('gpu'),socTier:t('chipset'),os:t('os')};
-PAGES.game=id=>{const g=DB.game(id);if(!g)return view(empty('Game not found.')+'<div class="empty"><a class="btn" href="#library">Back to library</a></div>');
+PAGES.game=id=>{const g=DB.game(id);if(!g)return view(empty(t('gameNotFound'))+'<div class="empty"><a class="btn" href="#library">${t('backLibrary')}</a></div>');
 S.set('recent',[id,...S.get('recent',[]).filter(x=>x!==id)].slice(0,8));const d=activeDev(),r=d&&Compat.check(g,d);
 const rq=q=>q?`<ul>${Object.entries(q).map(([k,v])=>`<li>${REQ[k]||k}: ${[].concat(v).join(', ')}</li>`).join('')}</ul>`:'<p class="mut">Insufficient Data</p>';
 const mob=g.mobile?Object.entries(g.mobile).map(([k,v])=>`<p><b>${pl(k)}</b>: ${Object.keys(v).length?Object.entries(v).map(([a,b])=>`${a} ${b}`).join(', '):t('insufficient')}</p>`).join(''):'';
@@ -32,11 +32,11 @@ view(`<a href="#library">← ${t('library')}</a><div class="row"><img src="${cov
 PAGES.settings=()=>{const l=S.get('lang','en'),th=S.get('theme','dark');
 view(`<h1>${t('settings')}</h1><label>${t('language')}<select data-s="lang"><option value="en" ${l==='en'?'selected':''}>English</option><option value="ar" ${l==='ar'?'selected':''}>العربية</option><option value="fr" ${l==='fr'?'selected':''}>Français</option></select></label>
 <label>${t('theme')}<select data-s="theme"><option value="dark" ${th==='dark'?'selected':''} >${t('dark')}</option><option value="light" ${th==='light'?'selected':''} >${t('light')}</option></select></label>
-<div class="row"><button class="btn" data-a="expDev">Export devices</button><button class="btn" data-a="tests">Run compatibility self-tests</button><button class="btn" data-a="reset">Reset all data</button></div><div id="tests"></div>`)};
+<div class="row"><button class="btn" data-a="expDev">${t('exportDevices')}</button><button class="btn" data-a="tests">${t('runTests')}</button><button class="btn" data-a="reset">${t('reset')}</button></div><div id="tests"></div>`)};
 PAGES.about=()=>view(`<h1>${t('about')}</h1><p>${t('tagline')} ${t('aboutText')}</p><div class="banner">${esc(DB.meta.notice)}</div><p>${t('openSource')}</p>`);
 ACT.fav=id=>{let f=S.get('favs',[]);f=f.includes(id)?f.filter(x=>x!==id):[...f,id];S.set('favs',f);toast(t('favoriteUpdated'));route()};
 ACT.report=()=>{const d=activeDev();if(!d)return;dl('gamescope-report.json',{generated:new Date().toISOString(),notice:DB.meta.notice,device:d,results:DB.games.map(g=>{const r=Compat.check(g,d);return{game:g.name,status:r.status,note:r.note,checks:r.rows}})})};
-ACT.reset=()=>{if(!confirm('Delete all saved devices, favorites and settings?'))return;Object.keys(localStorage).filter(k=>k.startsWith('gs_')).forEach(k=>localStorage.removeItem(k));applyPrefs();route()};
+ACT.reset=()=>{if(!confirm(t('resetConfirm')))return;Object.keys(localStorage).filter(k=>k.startsWith('gs_')).forEach(k=>localStorage.removeItem(k));applyPrefs();route()};
 ACT.tests=()=>{const r=Compat.selfTest();$('#tests').innerHTML=`<div class="tw"><table>${r.map(x=>`<tr><td>${esc(x.n)}</td><td>${x.a} (expected ${x.e})</td><td>${x.pass?'✔':'✘'}</td></tr>`).join('')}</table></div>`};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b)ACT[b.dataset.a]?.(b.dataset.id)});
 document.addEventListener('submit',e=>{const f=e.target.dataset.form;if(f){e.preventDefault();FORMS[f](new FormData(e.target))}});
