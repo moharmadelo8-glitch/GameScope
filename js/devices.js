@@ -31,7 +31,7 @@ FORMS.dev=fd=>{
  fields(SEL).forEach(([k,,kind])=>{const v=String(fd.get(k)||'').trim();specs[k]=kind==='n'?(v===''?null:Number(v)):v});
  const ds=S.get('devices',[]);
  if(ds.length>=20)return toast('Limit reached: delete a device first.');
- const nm=String(fd.get('name')||'').trim()||(SEL==='pc'?(specs.gpu||specs.cpu||'My PC'):SEL==='android'?([specs.brand,specs.model].filter(Boolean).join(' ')||'My Android phone'):SEL==='ios'?(specs.model||'My iPhone'):conName(specs.model));
+ const nm=String(fd.get('name')||'').trim()||(SEL==='pc'?(specs.gpu||specs.cpu||'My PC'):SEL==='android'?([specs.brand,specs.model].filter(Boolean).join(' ')||'My Android phone'):SEL==='ios'?(specs.model||'My iPhone'):(conName(specs.model)||'My console'));
  const d={id:Date.now().toString(36),type:SEL,name:nm,specs};
  ds.push(d);S.set('devices',ds);S.set('active',d.id);toast('Device saved');location.hash='find';
 };
