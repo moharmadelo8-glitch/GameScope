@@ -1,5 +1,5 @@
 let chart;const CMP={a:'',b:''};
-const counts=d=>{const c={full:0,adjust:0,below:0,unknown:0};DB.games.forEach(g=>c[Compat.check(g,d).status]++);return c};
+const counts=d=>{const c={full:0,adjust:0,below:0,unknown:0},p=d.type==='console'?(Compat.fam[d.specs.model]||''):d.type;DB.games.filter(g=>g.platforms.includes(p)).forEach(g=>c[Compat.check(g,d).status]++);return c};
 PAGES.compare=()=>{const ds=S.get('devices',[]);
 if(ds.length<2)return view(`<h1>${t('compare')}</h1>${empty('Save at least two devices to compare them.')}<div class="empty"><a class="btn pri" href="#select">Add device</a></div>`);
 const A=ds.find(d=>d.id===CMP.a)||ds[0],B=ds.find(d=>d.id===CMP.b)||ds[1],ca=counts(A),cb=counts(B),opt=x=>ds.map(d=>`<option value="${d.id}" ${d.id===x.id?'selected':''}>${esc(d.name)}</option>`).join('');
