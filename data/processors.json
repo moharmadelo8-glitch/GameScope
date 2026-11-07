@@ -163,5 +163,115 @@
     "id": "i9-14900k",
     "name": "Intel Core i9-14900K",
     "tier": 10
+  },
+  {
+    "id": "i3-12100f",
+    "name": "Intel Core i3-12100F",
+    "tier": 6
+  },
+  {
+    "id": "i5-12600k",
+    "name": "Intel Core i5-12600K",
+    "tier": 8
+  },
+  {
+    "id": "i5-13500",
+    "name": "Intel Core i5-13500",
+    "tier": 8
+  },
+  {
+    "id": "i5-14500",
+    "name": "Intel Core i5-14500",
+    "tier": 8
+  },
+  {
+    "id": "i7-12700",
+    "name": "Intel Core i7-12700",
+    "tier": 9
+  },
+  {
+    "id": "i7-13700",
+    "name": "Intel Core i7-13700",
+    "tier": 10
+  },
+  {
+    "id": "i7-14700",
+    "name": "Intel Core i7-14700",
+    "tier": 10
+  },
+  {
+    "id": "i9-13900k",
+    "name": "Intel Core i9-13900K",
+    "tier": 10
+  },
+  {
+    "id": "i9-14900ks",
+    "name": "Intel Core i9-14900KS",
+    "tier": 10
+  },
+  {
+    "id": "u5-225",
+    "name": "Intel Core Ultra 5 225",
+    "tier": 8
+  },
+  {
+    "id": "u5-225f",
+    "name": "Intel Core Ultra 5 225F",
+    "tier": 8
+  },
+  {
+    "id": "u5-245k",
+    "name": "Intel Core Ultra 5 245K",
+    "tier": 9
+  },
+  {
+    "id": "u5-245kf",
+    "name": "Intel Core Ultra 5 245KF",
+    "tier": 9
+  },
+  {
+    "id": "u7-265",
+    "name": "Intel Core Ultra 7 265",
+    "tier": 10
+  },
+  {
+    "id": "u7-265k",
+    "name": "Intel Core Ultra 7 265K",
+    "tier": 10
+  },
+  {
+    "id": "u9-285k",
+    "name": "Intel Core Ultra 9 285K",
+    "tier": 10
+  },
+  {
+    "id": "r5-8400f",
+    "name": "AMD Ryzen 5 8400F",
+    "tier": 7
+  },
+  {
+    "id": "r5-8600g",
+    "name": "AMD Ryzen 5 8600G",
+    "tier": 7
+  },
+  {
+    "id": "r7-8700g",
+    "name": "AMD Ryzen 7 8700G",
+    "tier": 8
+  },
+  {
+    "id": "r9-9900x",
+    "name": "AMD Ryzen 9 9900X",
+    "tier": 10
+  },
+  {
+    "id": "r9-9950x",
+    "name": "AMD Ryzen 9 9950X",
+    "tier": 10
+  },
+  {
+    "id": "r9-9950x3d",
+    "name": "AMD Ryzen 9 9950X3D",
+    "tier": 10
   }
 ]
