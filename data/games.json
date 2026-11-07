@@ -1,15 +1,613 @@
-{"notice":"ILLUSTRATIVE SAMPLE DATA - not yet verified against official sources. Always check the official page before buying. CPU/GPU tiers are approximate project-defined classes, not benchmarks.","source":"Illustrative sample (publisher pages linked per game)","updated":"2026-11-05","games":[
-{"id":"minecraft-java","name":"Minecraft","genre":"Sandbox","dev":"Mojang Studios","date":"2011-11-18","free":false,"platforms":["pc"],"pc":{"min":{"ram":4,"os":["Windows 10","Windows 11","macOS","Linux"]}},"url":"https://www.minecraft.net"},
-{"id":"gta-v","name":"Grand Theft Auto V","genre":"Action-Adventure","dev":"Rockstar Games","date":"2013-09-17","free":false,"platforms":["pc","ps4","ps5","xb1","xbs"],"pc":{"min":{"ram":4,"gpu":2,"cpu":2,"vram":2,"storage":72,"os":["Windows 10","Windows 11"]}},"url":"https://www.rockstargames.com/gta-v"},
-{"id":"cyberpunk-2077","name":"Cyberpunk 2077","genre":"RPG","dev":"CD PROJEKT RED","date":"2020-12-10","free":false,"platforms":["pc","ps4","ps5","xb1","xbs"],"pc":{"min":{"ram":12,"gpu":3,"cpu":4,"storage":70,"os":["Windows 10","Windows 11"]},"rec":{"ram":12,"gpu":5}},"url":"https://www.cyberpunk.net"},
-{"id":"cs2","name":"Counter-Strike 2","genre":"FPS","dev":"Valve","date":"2023-09-27","free":true,"platforms":["pc"],"pc":{"min":{"ram":8,"vram":1,"os":["Windows 10","Windows 11","Linux"]}},"url":"https://www.counter-strike.net"},
-{"id":"fortnite","name":"Fortnite","genre":"Battle Royale","dev":"Epic Games","date":"2017-07-21","free":true,"platforms":["pc","ps4","ps5","xb1","xbs","switch"],"pc":{"min":{"ram":8,"os":["Windows 10","Windows 11"]}},"url":"https://www.fortnite.com"},
-{"id":"valorant","name":"Valorant","genre":"FPS","dev":"Riot Games","date":"2020-06-02","free":true,"platforms":["pc","ps5","xbs"],"pc":{"min":{"ram":4,"os":["Windows 10","Windows 11"]}},"url":"https://playvalorant.com"},
-{"id":"rdr2","name":"Red Dead Redemption 2","genre":"Action-Adventure","dev":"Rockstar Games","date":"2018-10-26","free":false,"platforms":["pc","ps4","xb1"],"pc":{"min":{"ram":8,"gpu":3,"cpu":3,"vram":2,"storage":150,"os":["Windows 10","Windows 11"]},"rec":{"ram":12,"gpu":5,"cpu":4}},"url":"https://www.rockstargames.com/reddeadredemption2"},
-{"id":"forza-horizon-5","name":"Forza Horizon 5","genre":"Racing","dev":"Playground Games","date":"2021-11-09","free":false,"platforms":["pc","xb1","xbs","ps5"],"pc":{"min":{"ram":8,"gpu":4,"cpu":3,"storage":110,"os":["Windows 10","Windows 11"]},"rec":{"ram":16}},"url":"https://forza.net"},
-{"id":"roblox","name":"Roblox","genre":"Platform","dev":"Roblox Corporation","date":"2006","free":true,"platforms":["pc","android","ios","ps4","ps5","xb1","xbs"],"mobile":{"android":{"os":6},"ios":{}},"url":"https://www.roblox.com"},
-{"id":"warzone","name":"Call of Duty: Warzone","genre":"Battle Royale","dev":"Activision","date":"2020-03-10","free":true,"platforms":["pc","ps4","ps5","xb1","xbs"],"pc":{"min":{"ram":8,"gpu":3,"cpu":3,"os":["Windows 10","Windows 11"]}},"url":"https://www.callofduty.com/warzone"},
-{"id":"pubg-mobile","name":"PUBG Mobile","genre":"Battle Royale","dev":"Krafton / Tencent","date":"2018-03-19","free":true,"platforms":["android","ios"],"mobile":{"android":{"os":5.1,"ram":2},"ios":{}},"url":"https://www.pubgmobile.com"},
-{"id":"genshin-impact","name":"Genshin Impact","genre":"RPG","dev":"HoYoverse","date":"2020-09-28","free":true,"platforms":["pc","android","ios","ps4","ps5"],"mobile":{"android":{"os":7},"ios":{}},"url":"https://genshin.hoyoverse.com"},
-{"id":"free-fire","name":"Free Fire","genre":"Battle Royale","dev":"Garena","date":"2017","free":true,"platforms":["android","ios"],"mobile":{"android":{},"ios":{}},"url":"https://ff.garena.com"},
-{"id":"minecraft-bedrock","name":"Minecraft Bedrock Edition","genre":"Sandbox","dev":"Mojang Studios","date":"2011","free":false,"platforms":["pc","android","ios","ps4","ps5","xb1","xbs","switch"],"pc":{"min":{"ram":4,"os":["Windows 10","Windows 11"]}},"mobile":{"android":{"os":8},"ios":{}},"url":"https://www.minecraft.net"}]}
+{
+  "notice": "Curated requirements linked to publisher/support sources where available. Some older entries may still need verification. CPU/GPU tiers are approximate project classes, not benchmark scores. Missing requirements are shown as unknown.",
+  "source": "Publisher and developer support pages; see each game's source link",
+  "updated": "2026-11-07",
+  "games": [
+    {
+      "id": "minecraft-java",
+      "name": "Minecraft",
+      "genre": "Sandbox",
+      "dev": "Mojang Studios",
+      "date": "2011-11-18",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 4,
+          "gpu": 2,
+          "vram": 2,
+          "ram": 8,
+          "storage": 4,
+          "os": [
+            "Windows 10",
+            "Windows 11",
+            "Linux"
+          ]
+        },
+        "rec": {
+          "cpu": 7,
+          "gpu": 5,
+          "vram": 6,
+          "ram": 16,
+          "storage": 4,
+          "os": [
+            "Windows 10",
+            "Windows 11",
+            "Linux"
+          ]
+        }
+      },
+      "url": "https://www.minecraft.net",
+      "src": "Minecraft official Java Edition system requirements",
+      "upd": "2026-11-07"
+    },
+    {
+      "id": "gta-v",
+      "name": "Grand Theft Auto V",
+      "genre": "Action-Adventure",
+      "dev": "Rockstar Games",
+      "date": "2013-09-17",
+      "free": false,
+      "platforms": [
+        "pc",
+        "ps4",
+        "ps5",
+        "xb1",
+        "xbs"
+      ],
+      "pc": {
+        "min": {
+          "ram": 4,
+          "gpu": 2,
+          "cpu": 2,
+          "vram": 2,
+          "storage": 72,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.rockstargames.com/gta-v"
+    },
+    {
+      "id": "cyberpunk-2077",
+      "name": "Cyberpunk 2077",
+      "genre": "RPG",
+      "dev": "CD PROJEKT RED",
+      "date": "2020-12-10",
+      "free": false,
+      "platforms": [
+        "pc",
+        "ps4",
+        "ps5",
+        "xb1",
+        "xbs"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 6,
+          "gpu": 5,
+          "ram": 12,
+          "vram": 6,
+          "storage": 70,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 9,
+          "gpu": 6,
+          "ram": 16,
+          "vram": 8,
+          "storage": 70,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.cyberpunk.net",
+      "src": "CD PROJEKT RED official system requirements",
+      "upd": "2026-11-07"
+    },
+    {
+      "id": "cs2",
+      "name": "Counter-Strike 2",
+      "genre": "FPS",
+      "dev": "Valve",
+      "date": "2023-09-27",
+      "free": true,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "ram": 8,
+          "vram": 1,
+          "os": [
+            "Windows 10",
+            "Windows 11",
+            "Linux"
+          ]
+        }
+      },
+      "url": "https://www.counter-strike.net"
+    },
+    {
+      "id": "fortnite",
+      "name": "Fortnite",
+      "genre": "Battle Royale",
+      "dev": "Epic Games",
+      "date": "2017-07-21",
+      "free": true,
+      "platforms": [
+        "pc",
+        "ps4",
+        "ps5",
+        "xb1",
+        "xbs",
+        "switch"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 3,
+          "gpu": 1,
+          "ram": 8,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 5,
+          "gpu": 4,
+          "vram": 2,
+          "ram": 16,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.fortnite.com",
+      "src": "Epic Games official PC requirements",
+      "upd": "2026-11-07"
+    },
+    {
+      "id": "valorant",
+      "name": "Valorant",
+      "genre": "FPS",
+      "dev": "Riot Games",
+      "date": "2020-06-02",
+      "free": true,
+      "platforms": [
+        "pc",
+        "ps5",
+        "xbs"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 2,
+          "gpu": 1,
+          "ram": 4,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 3,
+          "gpu": 2,
+          "ram": 4,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://playvalorant.com",
+      "src": "Riot Games official PC requirements",
+      "upd": "2026-11-07"
+    },
+    {
+      "id": "rdr2",
+      "name": "Red Dead Redemption 2",
+      "genre": "Action-Adventure",
+      "dev": "Rockstar Games",
+      "date": "2018-10-26",
+      "free": false,
+      "platforms": [
+        "pc",
+        "ps4",
+        "xb1"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 3,
+          "gpu": 3,
+          "ram": 8,
+          "vram": 2,
+          "storage": 150,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 6,
+          "gpu": 5,
+          "ram": 12,
+          "vram": 6,
+          "storage": 150,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.rockstargames.com/reddeadredemption2",
+      "src": "Rockstar Games official PC requirements",
+      "upd": "2026-11-07"
+    },
+    {
+      "id": "forza-horizon-5",
+      "name": "Forza Horizon 5",
+      "genre": "Racing",
+      "dev": "Playground Games",
+      "date": "2021-11-09",
+      "free": false,
+      "platforms": [
+        "pc",
+        "xb1",
+        "xbs",
+        "ps5"
+      ],
+      "pc": {
+        "min": {
+          "ram": 8,
+          "gpu": 4,
+          "cpu": 3,
+          "storage": 110,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "ram": 16
+        }
+      },
+      "url": "https://forza.net"
+    },
+    {
+      "id": "roblox",
+      "name": "Roblox",
+      "genre": "Platform",
+      "dev": "Roblox Corporation",
+      "date": "2006",
+      "free": true,
+      "platforms": [
+        "pc",
+        "android",
+        "ios",
+        "ps4",
+        "ps5",
+        "xb1",
+        "xbs"
+      ],
+      "mobile": {
+        "android": {
+          "os": 6
+        },
+        "ios": {}
+      },
+      "url": "https://www.roblox.com"
+    },
+    {
+      "id": "warzone",
+      "name": "Call of Duty: Warzone",
+      "genre": "Battle Royale",
+      "dev": "Activision",
+      "date": "2020-03-10",
+      "free": true,
+      "platforms": [
+        "pc",
+        "ps4",
+        "ps5",
+        "xb1",
+        "xbs"
+      ],
+      "pc": {
+        "min": {
+          "ram": 8,
+          "gpu": 3,
+          "cpu": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.callofduty.com/warzone"
+    },
+    {
+      "id": "pubg-mobile",
+      "name": "PUBG Mobile",
+      "genre": "Battle Royale",
+      "dev": "Krafton / Tencent",
+      "date": "2018-03-19",
+      "free": true,
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "mobile": {
+        "android": {
+          "os": 5.1,
+          "ram": 2
+        },
+        "ios": {}
+      },
+      "url": "https://www.pubgmobile.com"
+    },
+    {
+      "id": "genshin-impact",
+      "name": "Genshin Impact",
+      "genre": "RPG",
+      "dev": "HoYoverse",
+      "date": "2020-09-28",
+      "free": true,
+      "platforms": [
+        "pc",
+        "android",
+        "ios",
+        "ps4",
+        "ps5"
+      ],
+      "mobile": {
+        "android": {
+          "os": 10,
+          "ram": 4,
+          "storage": 40,
+          "socTier": 3
+        },
+        "ios": {
+          "os": 14,
+          "ram": 3,
+          "storage": 40
+        }
+      },
+      "url": "https://genshin.hoyoverse.com",
+      "pc": {
+        "min": {
+          "cpu": 5,
+          "gpu": 4,
+          "ram": 8,
+          "vram": 2,
+          "storage": 110,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 7,
+          "gpu": 5,
+          "ram": 16,
+          "vram": 6,
+          "storage": 110,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "src": "HoYoverse official system requirements",
+      "upd": "2026-11-07"
+    },
+    {
+      "id": "free-fire",
+      "name": "Free Fire",
+      "genre": "Battle Royale",
+      "dev": "Garena",
+      "date": "2017",
+      "free": true,
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "mobile": {
+        "android": {},
+        "ios": {}
+      },
+      "url": "https://ff.garena.com"
+    },
+    {
+      "id": "minecraft-bedrock",
+      "name": "Minecraft Bedrock Edition",
+      "genre": "Sandbox",
+      "dev": "Mojang Studios",
+      "date": "2011",
+      "free": false,
+      "platforms": [
+        "pc",
+        "android",
+        "ios",
+        "ps4",
+        "ps5",
+        "xb1",
+        "xbs",
+        "switch"
+      ],
+      "pc": {
+        "min": {
+          "ram": 4,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "mobile": {
+        "android": {
+          "os": 8
+        },
+        "ios": {}
+      },
+      "url": "https://www.minecraft.net"
+    },
+    {
+      "id": "elden-ring",
+      "name": "Elden Ring",
+      "genre": "Action RPG",
+      "dev": "FromSoftware / Bandai Namco",
+      "date": "2022-02-25",
+      "free": false,
+      "platforms": [
+        "pc",
+        "ps4",
+        "ps5",
+        "xb1",
+        "xbs"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 5,
+          "gpu": 5,
+          "ram": 12,
+          "vram": 3,
+          "storage": 60,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 7,
+          "gpu": 5,
+          "ram": 16,
+          "vram": 8,
+          "storage": 60,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://en.bandainamcoent.eu/elden-ring/elden-ring",
+      "src": "Bandai Namco official system requirements",
+      "upd": "2026-11-07"
+    },
+    {
+      "id": "baldurs-gate-3",
+      "name": "Baldur's Gate 3",
+      "genre": "RPG",
+      "dev": "Larian Studios",
+      "date": "2023-08-03",
+      "free": false,
+      "platforms": [
+        "pc",
+        "ps5",
+        "xbs"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 4,
+          "gpu": 4,
+          "ram": 8,
+          "vram": 4,
+          "storage": 150,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 7,
+          "gpu": 6,
+          "ram": 16,
+          "vram": 8,
+          "storage": 150,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://larian.com/support/faqs/system-requirements_47",
+      "src": "Larian Studios official system requirements",
+      "upd": "2026-11-07"
+    },
+    {
+      "id": "hogwarts-legacy",
+      "name": "Hogwarts Legacy",
+      "genre": "Action RPG",
+      "dev": "Avalanche Software / Warner Bros. Games",
+      "date": "2023-02-10",
+      "free": false,
+      "platforms": [
+        "pc",
+        "ps5",
+        "xbs",
+        "ps4",
+        "xb1"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 5,
+          "gpu": 4,
+          "ram": 16,
+          "vram": 4,
+          "storage": 85,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 7,
+          "gpu": 6,
+          "ram": 16,
+          "vram": 8,
+          "storage": 85,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://portkeygamessupport.wbgames.com/hc/en-us/articles/8978925088403-Hogwarts-Legacy-PC-System-Requirements",
+      "src": "Portkey Games official PC requirements",
+      "upd": "2026-11-07"
+    },
+    {
+      "id": "call-of-duty-mobile",
+      "name": "Call of Duty: Mobile",
+      "genre": "FPS",
+      "dev": "Activision",
+      "date": "2019-10-01",
+      "free": true,
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "mobile": {
+        "android": {
+          "os": 6,
+          "ram": 2
+        },
+        "ios": {
+          "os": 15,
+          "ram": 2
+        }
+      },
+      "url": "https://support.activision.com/content/atvi/support/web/en/cod-mobile/articles/call-of-duty-mobile-faq.html",
+      "src": "Activision official FAQ",
+      "upd": "2026-11-07"
+    }
+  ]
+}
