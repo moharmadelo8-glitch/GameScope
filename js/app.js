@@ -19,7 +19,7 @@ view(`<section class="hero"><h1>${t('tagline')}</h1><p class="mut">Check PC, And
 <div class="stats"><div class="card"><b>${DB.games.length}</b>games in database</div><div class="card"><b>${S.get('devices',[]).length}</b>saved devices</div><div class="card"><b>${S.get('favs',[]).length}</b>favorites</div></div>
 <div class="banner">${esc(DB.meta.notice)}</div><h2>${t('recent')}</h2>${rv.length?grid(rv,activeDev()):empty('No games viewed yet.')}`)};
 PAGES.favorites=()=>{const l=S.get('favs',[]).map(DB.game).filter(Boolean);view(`<h1>${t('favorites')}</h1>${l.length?grid(l,activeDev()):empty('No favorites yet. Tap ☆ on any game.')}`)};
-const REQ={ram:'RAM (GB)',vram:'VRAM (GB)',storage:'Storage (GB)',cpu:'CPU tier',gpu:'GPU tier',os:'OS'};
+const REQ={ram:'RAM (GB)',vram:'VRAM (GB)',storage:'Storage (GB)',cpu:'CPU tier',gpu:'GPU tier',socTier:'Chipset tier',os:'OS'};
 PAGES.game=id=>{const g=DB.game(id);if(!g)return view(empty('Game not found.')+'<div class="empty"><a class="btn" href="#library">Back to library</a></div>');
 S.set('recent',[id,...S.get('recent',[]).filter(x=>x!==id)].slice(0,8));const d=activeDev(),r=d&&Compat.check(g,d);
 const rq=q=>q?`<ul>${Object.entries(q).map(([k,v])=>`<li>${REQ[k]||k}: ${[].concat(v).join(', ')}</li>`).join('')}</ul>`:'<p class="mut">Insufficient Data</p>';
