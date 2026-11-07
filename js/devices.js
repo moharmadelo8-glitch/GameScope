@@ -2,8 +2,8 @@ let SEL='pc';
 const activeDev=()=>S.get('devices',[]).find(d=>d.id===S.get('active'))||null;
 const conName=id=>(DB.dev.consoles.find(c=>c[0]===id)||[id,id])[1];
 const fields=ty=>({
- pc:[['cpu','${t('cpu')}','l','cpus'],['gpu','${t('gpu')}','l','gpus'],['ram','${t('ram')}','n',[1,1024]],['vram','${t('vram')}','n',[0,128]],['os','${t('os')}','s',['Windows 10','Windows 11','macOS','Linux']],['storage','${t('storage')}','n',[0,100000]],['res','${t('resolution')} (${t('optional')})','s',['1280x720','1920x1080','2560x1440','3840x2160']]],
- android:[['brand','${t('brand')}','b',DB.dev.androidBrands||[]],['model','${t('model')}','l','androidModels'],['soc','${t('chipset')} (${t('optional')})','l','mobile-processors'],['ram','RAM (GB)','n',[1,64]],['android','${t('androidVersion')}','n',[4,20]],['storage','Free storage (GB)','n',[0,2048]]],
+ pc:[['cpu',t('cpu'),'l','cpus'],['gpu',t('gpu'),'l','gpus'],['ram',t('ram'),'n',[1,1024]],['vram',t('vram'),'n',[0,128]],['os',t('os'),'s',['Windows 10','Windows 11','macOS','Linux']],['storage',t('storage'),'n',[0,100000]],['res',t('resolution')+' ('+t('optional')+')','s',['1280x720','1920x1080','2560x1440','3840x2160']]],
+ android:[['brand',t('brand'),'b',DB.dev.androidBrands||[]],['model',t('model'),'l','androidModels'],['soc',t('chipset')+' ('+t('optional')+')','l','mobile-processors'],['ram','RAM (GB)','n',[1,64]],['android',t('androidVersion'),'n',[4,20]],['storage','Free storage (GB)','n',[0,2048]]],
  ios:[['model','iPhone model','s',DB.dev.iphones],['ios','iOS version','n',[9,30]],['storage','Free storage (GB)','n',[0,2048]]],
  console:[['model','Console','c']]
 }[ty]);
@@ -36,9 +36,9 @@ FORMS.dev=fd=>{
  const d={id:Date.now().toString(36),type:SEL,name:nm,specs};
  ds.push(d);S.set('devices',ds);S.set('active',d.id);toast(t('saveSuccess'));location.hash='find';
 };
-const specsText=d=>Object.entries(d.specs).filter(([,v])=>v!==null&&v!=='').map(([k,v])=>`${k}: ${k==='model'&&d.type==='console'?conName(v):v}`).join(' · ')||'${t('noSpecs')}';
-PAGES.devices=()=>{const ds=S.get('devices',[]),a=S.get('active');view(`<h1>${t('devices')}</h1><div class="row"><a class="btn pri" href="#select" >${t('addDevice')}</a><button class="btn" data-a="expDev">${t('export')}</button><label class="btn">Import devices<input id="imp" type="file" accept="application/json" hidden></label></div>${ds.length?`<div class="grid">${ds.map(d=>`<div class="card cb"><h3>${esc(d.name)}</h3><span class="badge mute">${d.type}</span>${d.id===a?' <span class="badge ok" >${t('active')}</span>':''}<p class="mut">${esc(specsText(d))}</p><div class="row"><button class="btn" data-a="use" data-id="${d.id}" >${t('use')}</button><button class="btn" data-a="del" data-id="${d.id}" >${t('delete')}</button></div></div>`).join('')}</div>`:empty('${t('noDevices')}')}` )};
-ACT.use=id=>{S.set('active',id);toast('Active device set');route()};
+const specsText=d=>Object.entries(d.specs).filter(([,v])=>v!==null&&v!=='').map(([k,v])=>`${k}: ${k==='model'&&d.type==='console'?conName(v):v}`).join(' · ')||t('noSpecs');
+PAGES.devices=()=>{const ds=S.get('devices',[]),a=S.get('active');view(`<h1>${t('devices')}</h1><div class="row"><a class="btn pri" href="#select" >${t('addDevice')}</a><button class="btn" data-a="expDev">${t('export')}</button><label class="btn">Import devices<input id="imp" type="file" accept="application/json" hidden></label></div>${ds.length?`<div class="grid">${ds.map(d=>`<div class="card cb"><h3>${esc(d.name)}</h3><span class="badge mute">${d.type}</span>${d.id===a?' <span class="badge ok" >${t('active')}</span>':''}<p class="mut">${esc(specsText(d))}</p><div class="row"><button class="btn" data-a="use" data-id="${d.id}" >${t('use')}</button><button class="btn" data-a="del" data-id="${d.id}" >${t('delete')}</button></div></div>`).join('')}</div>`:empty(t('noDevices'))}` )};
+ACT.use=id=>{S.set('active',id);toast(t('use'));route()};
 ACT.del=id=>{if(!confirm('Delete this device?'))return;S.set('devices',S.get('devices',[]).filter(d=>d.id!==id));if(S.get('active')===id)S.set('active','');route()};
 ACT.expDev=()=>dl('gamescope-devices.json',S.get('devices',[]));
 function importDevices(file){const r=new FileReader();r.onload=()=>{try{const a=JSON.parse(r.result);if(!Array.isArray(a))throw 0;const ok=a.filter(d=>d&&typeof d.name==='string'&&['pc','android','ios','console'].includes(d.type)&&d.specs&&typeof d.specs==='object').map(d=>({id:Date.now().toString(36)+Math.random().toString(36).slice(2,5),type:d.type,name:d.name.slice(0,40),specs:d.specs}));if(!ok.length)throw 0;S.set('devices',[...S.get('devices',[]),...ok].slice(0,20));toast(ok.length+' device(s) imported');route()}catch{toast('Import failed: invalid devices file.')}};r.readAsText(file)}
