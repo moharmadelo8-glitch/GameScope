@@ -421,10 +421,19 @@
         "ios"
       ],
       "mobile": {
-        "android": {},
-        "ios": {}
+        "android": {
+          "os": 4.4,
+          "ram": 1,
+          "storage": 1.5
+        },
+        "ios": {
+          "os": 9,
+          "ram": 1
+        }
       },
-      "url": "https://ff.garena.com"
+      "url": "https://ff.garena.com",
+      "src": "Garena official support requirements",
+      "upd": "2026-11-07"
     },
     {
       "id": "minecraft-bedrock",
