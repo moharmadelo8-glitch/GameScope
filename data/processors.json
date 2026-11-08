@@ -273,5 +273,105 @@
     "id": "r9-9950x3d",
     "name": "AMD Ryzen 9 9950X3D",
     "tier": 10
+  },
+  {
+    "id": "r7-3700x",
+    "name": "AMD Ryzen 7 3700X",
+    "tier": 7
+  },
+  {
+    "id": "r5-4500",
+    "name": "AMD Ryzen 5 4500",
+    "tier": 5
+  },
+  {
+    "id": "r7-5800x3d",
+    "name": "AMD Ryzen 7 5800X3D",
+    "tier": 9
+  },
+  {
+    "id": "r9-5900x",
+    "name": "AMD Ryzen 9 5900X",
+    "tier": 9
+  },
+  {
+    "id": "r9-5950x",
+    "name": "AMD Ryzen 9 5950X",
+    "tier": 9
+  },
+  {
+    "id": "r5-7600x",
+    "name": "AMD Ryzen 5 7600X",
+    "tier": 8
+  },
+  {
+    "id": "i3-10100f",
+    "name": "Intel Core i3-10100F",
+    "tier": 4
+  },
+  {
+    "id": "i5-10400f",
+    "name": "Intel Core i5-10400F",
+    "tier": 5
+  },
+  {
+    "id": "i7-10700k",
+    "name": "Intel Core i7-10700K",
+    "tier": 7
+  },
+  {
+    "id": "i9-10900k",
+    "name": "Intel Core i9-10900K",
+    "tier": 8
+  },
+  {
+    "id": "i5-11600k",
+    "name": "Intel Core i5-11600K",
+    "tier": 7
+  },
+  {
+    "id": "i7-11700k",
+    "name": "Intel Core i7-11700K",
+    "tier": 8
+  },
+  {
+    "id": "i9-11900k",
+    "name": "Intel Core i9-11900K",
+    "tier": 8
+  },
+  {
+    "id": "i5-12600kf",
+    "name": "Intel Core i5-12600KF",
+    "tier": 8
+  },
+  {
+    "id": "i7-13700f",
+    "name": "Intel Core i7-13700F",
+    "tier": 9
+  },
+  {
+    "id": "u7-255h",
+    "name": "Intel Core Ultra 7 255H",
+    "tier": 8
+  },
+  {
+    "id": "r7-8845hs",
+    "name": "AMD Ryzen 7 8845HS",
+    "tier": 8
+  },
+  {
+    "id": "r9-8945hs",
+    "name": "AMD Ryzen 9 8945HS",
+    "tier": 9
+  },
+  {
+    "id": "r7-7840hs",
+    "name": "AMD Ryzen 7 7840HS",
+    "tier": 8
+  },
+  {
+    "id": "r9-7945hx",
+    "name": "AMD Ryzen 9 7945HX",
+    "tier": 10
   }
 ]
