@@ -3,9 +3,9 @@ const activeDev=()=>S.get('devices',[]).find(d=>d.id===S.get('active'))||null;
 const conName=id=>(DB.dev.consoles.find(c=>c[0]===id)||[id,id])[1];
 const fields=ty=>({
  pc:[['cpu',t('cpu'),'l','cpus'],['gpu',t('gpu'),'l','gpus'],['ram',t('ram'),'n',[1,1024]],['vram',t('vram'),'n',[0,128]],['os',t('os'),'s',['Windows 10','Windows 11','macOS','Linux']],['storage',t('storage'),'n',[0,100000]],['res',t('resolution')+' ('+t('optional')+')','s',['1280x720','1920x1080','2560x1440','3840x2160']]],
- android:[['brand',t('brand'),'b',DB.dev.androidBrands||[]],['model',t('model'),'l','androidModels'],['soc',t('chipset')+' ('+t('optional')+')','l','mobile-processors'],['ram','RAM (GB)','n',[1,64]],['android',t('androidVersion'),'n',[4,20]],['storage','Free storage (GB)','n',[0,2048]]],
- ios:[['model','iPhone model','s',DB.dev.iphones],['ios','iOS version','n',[9,30]],['storage','Free storage (GB)','n',[0,2048]]],
- console:[['model','Console','c']]
+ android:[['brand',t('brand'),'b',DB.dev.androidBrands||[]],['model',t('model'),'l','androidModels'],['soc',t('chipset')+' ('+t('optional')+')','l','mobile-processors'],['ram',t('ram'),'n',[1,64]],['android',t('androidVersion'),'n',[4,20]],['storage',t('freeStorage'),'n',[0,2048]]],
+ ios:[['model',t('model'),'s',DB.dev.iphones],['ios',t('iosVersion'),'n',[9,30]],['storage','Free storage (GB)','n',[0,2048]]],
+ console:[['model',t('console'),'c']]
 }[ty]);
 const input=([k,l,kind,x])=>{
  const a=`name="${k}" id="f_${k}" title="${l}"`;
@@ -13,7 +13,7 @@ const input=([k,l,kind,x])=>{
  if(kind==='n')i=`<input type="number" step="any" min="${x[0]}" max="${x[1]}" placeholder="${t('leaveBlank')}" ${a}>`;
  else if(kind==='b')i=`<select ${a}><option value="">${t('choose')}</option>${x.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join('')}</select>`;
  else if(kind==='s'||kind==='c')i=`<select ${a}><option value="">${t('choose')}</option>${(kind==='c'?DB.dev.consoles:x.map(v=>[v,v])).map(([v,n])=>`<option value="${esc(v)}">${esc(n)}</option>`).join('')}</select>`;
- else i=`<input type="text" maxlength="100" autocomplete="off" placeholder="${kind==='l'?'Type to search or choose a suggestion':'Enter if known'}" ${kind==='l'?`list="dl_${x}"`:''} ${a}>`;
+ else i=`<input type="text" maxlength="100" autocomplete="off" placeholder="${kind==='l'?'${t('typeToSearch')}':'Enter if known'}" ${kind==='l'?`list="dl_${x}"`:''} ${a}>`;
  return `<label>${l}${i}</label>`;
 };
 PAGES.select=()=>{
