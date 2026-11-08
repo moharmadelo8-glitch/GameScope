@@ -198,5 +198,120 @@
     "id": "tensor-g4",
     "name": "Google Tensor G4",
     "tier": 8
+  },
+  {
+    "id": "sd-450",
+    "name": "Qualcomm Snapdragon 450",
+    "tier": 1
+  },
+  {
+    "id": "sd-625",
+    "name": "Qualcomm Snapdragon 625",
+    "tier": 2
+  },
+  {
+    "id": "sd-665",
+    "name": "Qualcomm Snapdragon 665",
+    "tier": 3
+  },
+  {
+    "id": "sd-4gen2",
+    "name": "Qualcomm Snapdragon 4 Gen 2",
+    "tier": 4
+  },
+  {
+    "id": "sd-6gen1",
+    "name": "Qualcomm Snapdragon 6 Gen 1",
+    "tier": 5
+  },
+  {
+    "id": "sd-6gen3",
+    "name": "Qualcomm Snapdragon 6 Gen 3",
+    "tier": 5
+  },
+  {
+    "id": "sd-7gen1",
+    "name": "Qualcomm Snapdragon 7 Gen 1",
+    "tier": 6
+  },
+  {
+    "id": "sd-8gen4",
+    "name": "Qualcomm Snapdragon 8 Elite Gen 5",
+    "tier": 10
+  },
+  {
+    "id": "dim-6300",
+    "name": "MediaTek Dimensity 6300",
+    "tier": 4
+  },
+  {
+    "id": "dim-6400",
+    "name": "MediaTek Dimensity 6400",
+    "tier": 4
+  },
+  {
+    "id": "dim-7300",
+    "name": "MediaTek Dimensity 7300",
+    "tier": 6
+  },
+  {
+    "id": "dim-7400",
+    "name": "MediaTek Dimensity 7400",
+    "tier": 6
+  },
+  {
+    "id": "dim-9000",
+    "name": "MediaTek Dimensity 9000",
+    "tier": 9
+  },
+  {
+    "id": "dim-9400",
+    "name": "MediaTek Dimensity 9400",
+    "tier": 10
+  },
+  {
+    "id": "exynos-990",
+    "name": "Samsung Exynos 990",
+    "tier": 6
+  },
+  {
+    "id": "exynos-2100",
+    "name": "Samsung Exynos 2100",
+    "tier": 8
+  },
+  {
+    "id": "tensor-g1",
+    "name": "Google Tensor G1",
+    "tier": 5
+  },
+  {
+    "id": "tensor-g5",
+    "name": "Google Tensor G5",
+    "tier": 9
+  },
+  {
+    "id": "kirin-9000s",
+    "name": "Huawei Kirin 9000S",
+    "tier": 7
+  },
+  {
+    "id": "kirin-9010",
+    "name": "Huawei Kirin 9010",
+    "tier": 8
+  },
+  {
+    "id": "unisoc-t616",
+    "name": "Unisoc T616",
+    "tier": 2
+  },
+  {
+    "id": "unisoc-t606",
+    "name": "Unisoc T606",
+    "tier": 2
+  },
+  {
+    "id": "unisoc-t820",
+    "name": "Unisoc T820",
+    "tier": 4
   }
 ]
