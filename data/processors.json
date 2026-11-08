@@ -373,5 +373,75 @@
     "id": "r9-7945hx",
     "name": "AMD Ryzen 9 7945HX",
     "tier": 10
+  },
+  {
+    "id": "i5-4570",
+    "name": "Intel Core i5-4570",
+    "tier": 3
+  },
+  {
+    "id": "i7-4770",
+    "name": "Intel Core i7-4770",
+    "tier": 4
+  },
+  {
+    "id": "i7-4790k",
+    "name": "Intel Core i7-4790K",
+    "tier": 4
+  },
+  {
+    "id": "i5-6500",
+    "name": "Intel Core i5-6500",
+    "tier": 4
+  },
+  {
+    "id": "i7-6700k",
+    "name": "Intel Core i7-6700K",
+    "tier": 5
+  },
+  {
+    "id": "i5-7400",
+    "name": "Intel Core i5-7400",
+    "tier": 4
+  },
+  {
+    "id": "i5-7500",
+    "name": "Intel Core i5-7500",
+    "tier": 5
+  },
+  {
+    "id": "i7-7700k",
+    "name": "Intel Core i7-7700K",
+    "tier": 6
+  },
+  {
+    "id": "i3-8100",
+    "name": "Intel Core i3-8100",
+    "tier": 4
+  },
+  {
+    "id": "i5-8600k",
+    "name": "Intel Core i5-8600K",
+    "tier": 5
+  },
+  {
+    "id": "i7-8700k",
+    "name": "Intel Core i7-8700K",
+    "tier": 6
+  },
+  {
+    "id": "i5-9400f",
+    "name": "Intel Core i5-9400F",
+    "tier": 5
+  },
+  {
+    "id": "i7-9700",
+    "name": "Intel Core i7-9700",
+    "tier": 6
+  },
+  {
+    "id": "i9-9900k",
+    "name": "Intel Core i9-9900K",
+    "tier": 7
   }
 ]
