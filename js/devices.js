@@ -13,7 +13,7 @@ const input=([k,l,kind,x])=>{
  if(kind==='n')i=`<input type="number" step="any" min="${x[0]}" max="${x[1]}" placeholder="${t('leaveBlank')}" ${a}>`;
  else if(kind==='b')i=`<select ${a}><option value="">${t('choose')}</option>${x.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join('')}</select>`;
  else if(kind==='s'||kind==='c')i=`<select ${a}><option value="">${t('choose')}</option>${(kind==='c'?DB.dev.consoles:x.map(v=>[v,v])).map(([v,n])=>`<option value="${esc(v)}">${esc(n)}</option>`).join('')}</select>`;
- else i=`<input type="text" maxlength="100" autocomplete="off" placeholder="${kind==='l'?'${t('typeToSearch')}':'Enter if known'}" ${kind==='l'?`list="dl_${x}"`:''} ${a}>`;
+ else i=`<input type="text" maxlength="100" autocomplete="off" placeholder="${kind==='l'?t('typeToSearch'):'Enter if known'}" ${kind==='l'?`list="dl_${x}"`:''} ${a}>`;
  return `<label>${l}${i}</label>`;
 };
 PAGES.select=()=>{
