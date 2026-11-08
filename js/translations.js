@@ -18,3 +18,7 @@ Object.assign(I18N.fr,{iosVersion:'Version iOS',typeToSearch:'Saisissez ou chois
 Object.assign(I18N.en,{fpsEstimate:'Estimated 1080p Medium range; actual FPS varies by scene and settings.',buildEstimate:'Estimated PC parts total',priceDisclaimer:'Approximate US-dollar parts estimate only; excludes monitor, peripherals, tax and shipping. RAM/storage prices vary by type and capacity.'});
 Object.assign(I18N.ar,{fpsEstimate:'تقدير تقريبي على 1080p وإعدادات متوسطة؛ يختلف الأداء حسب المشهد والإعدادات.',buildEstimate:'السعر التقريبي للتجميعة',priceDisclaimer:'تقدير تقريبي بالدولار لقطع الحاسوب فقط؛ لا يشمل الشاشة والملحقات والضرائب والشحن. تختلف أسعار الذاكرة والتخزين حسب النوع والسعة.'});
 Object.assign(I18N.fr,{fpsEstimate:'Estimation en 1080p, réglages moyens ; les FPS réels varient selon la scène et les paramètres.',buildEstimate:'Prix estimé des composants',priceDisclaimer:'Estimation indicative en USD pour les composants uniquement ; écran, périphériques, taxes et livraison exclus.'});
+
+Object.assign(I18N.en,{priceSource:'Market reference'});
+Object.assign(I18N.ar,{priceSource:'مرجع أسعار السوق'});
+Object.assign(I18N.fr,{priceSource:'Référence de prix du marché'});
