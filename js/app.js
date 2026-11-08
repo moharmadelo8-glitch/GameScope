@@ -1,34 +1,33 @@
 const STATUS={full:['compatible','ok'],adjust:['adjust','warn'],below:['below','bad'],unknown:['unknown','mute']};
 const PLAT={pc:'pc',android:'android',ios:'ios',ps4:'ps4',ps5:'ps5',xb1:'xb1',xbs:'xbs',switch:'switch',switch2:'switch2'};const st=k=>t(STATUS[k]?.[0]||k),pl=k=>t(PLAT[k]||k);
 const STEAM_ART={'gta-v':'271590','cyberpunk-2077':'1091500','cs2':'730','rdr2':'1174180','forza-horizon-5':'1551360','warzone':'1962663','elden-ring':'1245620','baldurs-gate-3':'1086940','hogwarts-legacy':'990080'};const fallbackCover=g=>{const h=[...g.name].reduce((a,c)=>a+c.charCodeAt(0),0)%360;return 'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="hsl(${h},55%,25%)"/><stop offset="1" stop-color="#101522"/></linearGradient></defs><rect width="640" height="360" fill="url(#g)"/><path d="M0 290L640 90V360H0Z" fill="hsl(${h},55%,18%)" opacity=".65"/><text x="320" y="185" font-size="32" fill="white" text-anchor="middle" font-family="Arial,sans-serif">${esc(g.name.slice(0,34))}</text><text x="320" y="225" font-size="16" fill="#d8d8e8" text-anchor="middle">GAMESCOPE</text></svg>`)};const cover=g=>g.image|| (STEAM_ART[g.id]? 'https://cdn.cloudflare.steamstatic.com/steam/apps/'+STEAM_ART[g.id]+'/header.jpg':fallbackCover(g));
-const card=(g,d)=>{const r=d&&Compat.check(g,d),f=S.get('favs',[]).includes(g.id);
-return `<article class="card"><img src="${cover(g)}" data-fallback="${fallbackCover(g)}" alt="${esc(g.name)}" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback"><div class="cb"><h3>${esc(g.name)}</h3><p class="mut">${esc(g.genre)} · ${g.free?t('freeLabel'):t('paidLabel')}</p>${r?`<span class="badge ${STATUS[r.status][1]}">${st(r.status)}</span><p class="mut">${esc(r.bott)}</p>`:''}${fpsLabel(fpsEstimate(g,d))}<div class="row"><a class="btn" href="#game/${g.id}">${t('details')}</a><button class="btn" data-a="fav" data-id="${g.id}" aria-label="${t('favorite')}" title="${t('favorite')}">${f?'★':'☆'}</button></div></div></article>`};
-const grid=(l,d)=>`<div class="grid">${l.map(g=>card(g,d)).join('')}</div>`;
 const fpsEstimate=(g,d)=>{
  if(!d||d.type!=='pc'||!g.fpsBase)return null;
  const cpu=DB.cpu(d.specs?.cpu),gpu=DB.gpu(d.specs?.gpu);
  if(!cpu||!gpu)return null;
- const res=d.specs?.res||'1920x1080',resFactor=res==='3840x2160'?.55:res==='2560x1440'?.76:res==='1280x720'?1.22:1;
- const gpuFactor=.55+gpu.tier*.09,cpuFactor=Math.min(1.08,.80+Math.max(0,cpu.tier-3)*.04);
- const mid=Math.max(12,Math.round(g.fpsBase*gpuFactor*cpuFactor*resFactor));
- return {min:Math.max(8,Math.round(mid*.78)),max:Math.round(mid*1.22),mid};
+ const res=d.specs?.res||'1920x1080';
+ const factor=res==='3840x2160'?.55:res==='2560x1440'?.76:res==='1280x720'?1.22:1;
+ const gpuFactor=.55+Number(gpu.tier||5)*.09,cpuFactor=Math.min(1.08,.80+Math.max(0,Number(cpu.tier||3)-3)*.04);
+ const mid=Math.max(12,Math.round(Number(g.fpsBase)*gpuFactor*cpuFactor*factor));
+ return {min:Math.max(8,Math.round(mid*.78)),max:Math.round(mid*1.22)};
 };
 const buildEstimate=d=>{
  if(!d||d.type!=='pc')return null;
- const c=DB.cpu(d.specs?.cpu),g=DB.gpu(d.specs?.gpu);
- if(!c||!g)return null;
- const cpuBands={1:[25,45],2:[30,55],3:[40,70],4:[55,90],5:[70,120],6:[90,150],7:[120,190],8:[150,240],9:[190,320],10:[240,420]};
- const gpuBands={1:[20,45],2:[30,60],3:[45,85],4:[70,125],5:[100,180],6:[150,260],7:[220,370],8:[300,520],9:[450,750],10:[650,1150]};
- const ram=Math.max(4,Number(d.specs?.ram)||8),storage=Math.max(0,Number(d.specs?.storage)||0);
- const total=(a,b)=>[a[0]+b[0],a[1]+b[1]];
- let parts=total(cpuBands[c.tier]||cpuBands[5],gpuBands[g.tier]||gpuBands[5]);
- parts=total(parts,[Math.round(ram*7.8),Math.round(ram*21.25)]);
- parts=total(parts,[Math.round(storage/1024*46),Math.round(storage/1024*273)]);
- parts=total(parts,[180,350]);
- return {min:Math.round(parts[0]/10)*10,max:Math.round(parts[1]/10)*10};
+ const cpu=DB.cpu(d.specs?.cpu),gpu=DB.gpu(d.specs?.gpu);
+ if(!cpu||!gpu)return null;
+ const cb={1:[25,45],2:[30,55],3:[40,70],4:[55,90],5:[70,120],6:[90,150],7:[120,190],8:[150,240],9:[190,320],10:[240,420]};
+ const gb={1:[20,45],2:[30,60],3:[45,85],4:[70,125],5:[100,180],6:[150,260],7:[220,370],8:[300,520],9:[450,750],10:[650,1150]};
+ const ram=Math.max(4,Number(d.specs?.ram)||8),storage=Math.max(0,Number(d.specs?.storage)||512);
+ const c=cb[cpu.tier]||cb[5],g=gb[gpu.tier]||gb[5];
+ const lo=c[0]+g[0]+Math.round(ram*7.8)+Math.round(storage/1024*46)+180;
+ const hi=c[1]+g[1]+Math.round(ram*21.25)+Math.round(storage/1024*273)+350;
+ return {min:Math.round(lo/10)*10,max:Math.round(hi/10)*10};
 };
 const fpsLabel=f=>f?'<p class="fps-est">≈ '+f.min+'–'+f.max+' FPS <small>'+t('fpsEstimate')+'</small></p>':'';
-const priceLabel=p=>p?'<p class="price-est">'+t('buildEstimate')+': <b>
+const priceLabel=p=>p?'<p class="price-est">'+t('buildEstimate')+': <b>$'+p.min.toLocaleString('en-US')+'–$'+p.max.toLocaleString('en-US')+'</b></p>':'';
+const card=(g,d)=>{const r=d&&Compat.check(g,d),f=S.get('favs',[]).includes(g.id);
+return `<article class="card"><img src="${cover(g)}" data-fallback="${fallbackCover(g)}" alt="${esc(g.name)}" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback"><div class="cb"><h3>${esc(g.name)}</h3><p class="mut">${esc(g.genre)} · ${g.free?t('freeLabel'):t('paidLabel')}</p>${r?`<span class="badge ${STATUS[r.status][1]}">${st(r.status)}</span><p class="mut">${esc(r.bott)}</p>`:''}${fpsLabel(fpsEstimate(g,d))}<div class="row"><a class="btn" href="#game/${g.id}">${t('details')}</a><button class="btn" data-a="fav" data-id="${g.id}" aria-label="${t('favorite')}" title="${t('favorite')}">${f?'★':'☆'}</button></div></div></article>`};
+const grid=(l,d)=>`<div class="grid">${l.map(g=>card(g,d)).join('')}</div>`;
 const F={q:'',genre:'',plat:'',price:'',st:''};let CUR=null,CUR_ONLY=false;
 const sel=(f,l,o)=>`<select data-f="${f}" aria-label="${l}"><option value="">${l}</option>${o.map(([v,n])=>`<option value="${v}" ${F[f]===v?'selected':''}>${esc(n)}</option>`).join('')}</select>`;
 function body(){const d=CUR,platform=d?(d.type==='console'?(Compat.fam[d.specs.model]||''):d.type):'',rank={full:0,adjust:1,below:2,unknown:3};let L=DB.games.filter(g=>(!F.q||g.name.toLowerCase().includes(F.q.toLowerCase()))&&(!F.genre||g.genre===F.genre)&&(!F.plat||g.platforms.includes(F.plat))&&(!CUR_ONLY||!d||g.platforms.includes(platform))&&(!F.price||(F.price==='free')===g.free)&&(!F.st||!d||Compat.check(g,d).status===F.st));L.sort((a,b)=>{if(d){const x=rank[Compat.check(a,d).status],y=rank[Compat.check(b,d).status];if(x!==y)return x-y}return a.name.localeCompare(b.name)});
@@ -53,95 +52,6 @@ view(`<a href="#library">← ${t('library')}</a><div class="row"><img src="${cov
 <h2>${t('supported')}</h2><p>${g.platforms.map(p=>`<span class="badge mute" >${pl(p)}</span>`).join(' ')}</p>
 <div class="stats"><div class="card cb"><h3>${t('minimum')} (PC)</h3>${rq(g.pc?.min)}</div><div class="card cb"><h3>${t('recommended')} (PC)</h3>${rq(g.pc?.rec)}</div></div>${mob?`<h3>${t('mobile')}</h3>${mob}`:''}
 <h2>${t('yourDevice')}</h2>${r?`<p><span class="badge ${STATUS[r.status][1]}">${st(r.status)}</span> ${esc(r.note)}</p>${fpsLabel(fpsEstimate(g,d))}${r.rows.length?`<div class="tw"><table><tr><th>${t('check')}</th><th>${t('yourDevice')}</th><th>${t('needed')}</th><th>${t('result')}</th></tr>${r.rows.map(x=>`<tr><td>${esc(x.l)}</td><td>${esc(x.have)}</td><td>${esc(x.need)}</td><td>${x.ok===null?t('insufficient'):x.ok?'✔ '+t('pass'):'✘ Fail'}</td></tr>`).join('')}</table></div>`:''}`:empty(t('chooseDevice'))}
-<p class="mut">${t('source')}: ${esc(g.src||DB.meta.source)} · ${t('updated')}: ${esc(g.upd||DB.meta.updated)} · <a href="${esc(g.url)}" target="_blank" rel="noopener">${t('official')}</a>. CPU/GPU tiers are this project's approximate classes, not benchmarks.</p>`)};
-PAGES.settings=()=>{const l=S.get('lang','en'),th=S.get('theme','dark');
-view(`<h1>${t('settings')}</h1><label>${t('language')}<select data-s="lang"><option value="en" ${l==='en'?'selected':''}>English</option><option value="ar" ${l==='ar'?'selected':''}>العربية</option><option value="fr" ${l==='fr'?'selected':''}>Français</option></select></label>
-<label>${t('theme')}<select data-s="theme"><option value="dark" ${th==='dark'?'selected':''} >${t('dark')}</option><option value="light" ${th==='light'?'selected':''} >${t('light')}</option></select></label>
-<div class="row"><button class="btn" data-a="expDev">${t('exportDevices')}</button><button class="btn" data-a="tests">${t('runTests')}</button><button class="btn" data-a="reset">${t('reset')}</button></div><div id="tests"></div>`)};
-PAGES.about=()=>view(`<h1>${t('about')}</h1><p>${t('tagline')} ${t('aboutText')}</p><div class="banner">${esc(DB.meta.notice)}</div><p>${t('openSource')}</p>`);
-ACT.fav=id=>{let f=S.get('favs',[]);f=f.includes(id)?f.filter(x=>x!==id):[...f,id];S.set('favs',f);toast(t('favoriteUpdated'));route()};
-ACT.report=()=>{const d=activeDev();if(!d)return;dl('gamescope-report.json',{generated:new Date().toISOString(),notice:DB.meta.notice,device:d,results:DB.games.map(g=>{const r=Compat.check(g,d);return{game:g.name,status:r.status,note:r.note,checks:r.rows}})})};
-ACT.reset=()=>{if(!confirm(t('resetConfirm')))return;Object.keys(localStorage).filter(k=>k.startsWith('gs_')).forEach(k=>localStorage.removeItem(k));applyPrefs();route()};
-ACT.tests=()=>{const r=Compat.selfTest();$('#tests').innerHTML=`<div class="tw"><table>${r.map(x=>`<tr><td>${esc(x.n)}</td><td>${x.a} (expected ${x.e})</td><td>${x.pass?'✔':'✘'}</td></tr>`).join('')}</table></div>`};
-document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b)ACT[b.dataset.a]?.(b.dataset.id)});
-document.addEventListener('submit',e=>{const f=e.target.dataset.form;if(f){e.preventDefault();FORMS[f](new FormData(e.target))}});
-const onF=e=>{const el=e.target;if(el.dataset.f!==undefined){F[el.dataset.f]=el.value;$('#res').innerHTML=body()}};
-document.addEventListener('input',onF);
-document.addEventListener('change',e=>{onF(e);const el=e.target,s=el.dataset.s;
-if(s==='lang'||s==='theme'){S.set(s,el.value);applyPrefs();route()}else if(s==='cmpA'){CMP.a=el.value;route()}else if(s==='cmpB'){CMP.b=el.value;route()}
-else if(el.id==='imp'&&el.files[0])importDevices(el.files[0])});
-(async()=>{applyPrefs();$('#menu').onclick=()=>$('#side').classList.toggle('open');window.addEventListener('hashchange',route);
-try{await DB.load();route()}catch(e){console.error(e);view(`<p class="err">Could not load game data: ${esc(e.message)}. Serve the folder over HTTP (for example <code>python -m http.server</code>) instead of opening the file directly.</p>`)}})();
-+p.min.toLocaleString('en-US')+'–
-const F={q:'',genre:'',plat:'',price:'',st:''};let CUR=null,CUR_ONLY=false;
-const sel=(f,l,o)=>`<select data-f="${f}" aria-label="${l}"><option value="">${l}</option>${o.map(([v,n])=>`<option value="${v}" ${F[f]===v?'selected':''}>${esc(n)}</option>`).join('')}</select>`;
-function body(){const d=CUR,platform=d?(d.type==='console'?(Compat.fam[d.specs.model]||''):d.type):'',rank={full:0,adjust:1,below:2,unknown:3};let L=DB.games.filter(g=>(!F.q||g.name.toLowerCase().includes(F.q.toLowerCase()))&&(!F.genre||g.genre===F.genre)&&(!F.plat||g.platforms.includes(F.plat))&&(!CUR_ONLY||!d||g.platforms.includes(platform))&&(!F.price||(F.price==='free')===g.free)&&(!F.st||!d||Compat.check(g,d).status===F.st));L.sort((a,b)=>{if(d){const x=rank[Compat.check(a,d).status],y=rank[Compat.check(b,d).status];if(x!==y)return x-y}return a.name.localeCompare(b.name)});
-let h='';if(d){const c=counts(d);h=`<div class="stats"><div class="card"><b>${c.full}</b>${t('compatibleCount')}</div><div class="card"><b>${c.adjust}</b>${t('playable')}</div><div class="card"><b>${c.below+c.unknown}</b>${t('unsupported')}</div></div>`}
-return h+(L.length?grid(L,d):empty(t('noResults')))}
-function listPage(d,title,deviceOnly=false){CUR=d;CUR_ONLY=deviceOnly;const gs=[...new Set(DB.games.map(g=>g.genre))].map(x=>[x,x]);
-view(`<h1>${title}</h1>${d?`<p class="mut">${t('device')}: <b>${esc(d.name)}</b> <button class="btn" data-a="report">${t('export')}</button></p>`:''}
-<div class="filters"><input data-f="q" type="search" placeholder="${t('search')}" aria-label="${t('search')}" value="${esc(F.q)}">${sel('genre',t('genre'),gs)}${sel('plat',t('platform'),Object.entries(PLAT).map(([k])=>[k,pl(k)]))}${sel('price',t('price'),[['free',t('free')],['paid',t('paid')]])}${d?sel('st',t('status'),Object.keys(STATUS).map(k=>[k,st(k)])):''}</div><div id="res">${body()}</div>`)}
-PAGES.find=()=>{const d=activeDev();if(!d)return view(`<h1>${t('find')}</h1>${empty(t('chooseDevice'))}<div class="empty"><a class="btn pri" href="#select">${t('select')}</a></div>`);listPage(d,t('find'),true)};
-PAGES.library=()=>listPage(activeDev(),t('library'));
-PAGES.home=()=>{const rv=S.get('recent',[]).map(DB.game).filter(Boolean);
-view(`<section class="hero"><h1>${t('tagline')}</h1><p class="mut">${t('checkPc')}</p><a class="btn pri" href="#select">${t('cta')}</a></section>
-<div class="stats"><div class="card"><b>${DB.games.length}</b>${t('gamesInDb')}</div><div class="card"><b>${S.get('devices',[]).length}</b>${t('savedDevices')}</div><div class="card"><b>${S.get('favs',[]).length}</b>${t('favoritesLabel')}</div></div>
-<div class="banner">${esc(DB.meta.notice)}</div><h2>${t('recent')}</h2>${rv.length?grid(rv,activeDev()):empty(t('noGames'))}`)};
-PAGES.favorites=()=>{const l=S.get('favs',[]).map(DB.game).filter(Boolean);view(`<h1>${t('favorites')}</h1>${l.length?grid(l,activeDev()):empty(t('noGames'))}`)};
-const REQ={ram:t('ram'),vram:t('vram'),storage:t('storage'),cpu:t('cpu'),gpu:t('gpu'),socTier:t('chipset'),os:t('os')};
-PAGES.game=id=>{const g=DB.game(id);if(!g)return view(empty(t('gameNotFound'))+`<div class="empty"><a class="btn" href="#library">${t('backLibrary')}</a></div>`);
-S.set('recent',[id,...S.get('recent',[]).filter(x=>x!==id)].slice(0,8));const d=activeDev(),r=d&&Compat.check(g,d);
-const rq=q=>q?`<ul>${Object.entries(q).map(([k,v])=>`<li>${REQ[k]||k}: ${[].concat(v).join(', ')}</li>`).join('')}</ul>`:'<p class="mut">Insufficient Data</p>';
-const mob=g.mobile?Object.entries(g.mobile).map(([k,v])=>`<p><b>${pl(k)}</b>: ${Object.keys(v).length?Object.entries(v).map(([a,b])=>`${a} ${b}`).join(', '):t('insufficient')}</p>`).join(''):'';
-view(`<a href="#library">← ${t('library')}</a><div class="row"><img src="${cover(g)}" alt="${esc(g.name)}" data-fallback="${fallbackCover(g)}" onerror="this.onerror=null;this.src=this.dataset.fallback" style="max-width:320px;width:100%;object-fit:cover;aspect-ratio:16/9;border-radius:12px"><div><h1>${esc(g.name)}</h1><p class="mut">${esc(g.genre)} · ${esc(g.dev)} · ${t('released')} ${esc(g.date)} · ${g.free?t('freeLabel'):t('paidLabel')}</p><p >${esc(g.name)} — ${esc(g.genre)} — ${esc(g.dev)}</p><button class="btn" data-a="fav" data-id="${g.id}" >${t('favorite')}</button></div></div>
-<h2>${t('supported')}</h2><p>${g.platforms.map(p=>`<span class="badge mute" >${pl(p)}</span>`).join(' ')}</p>
-<div class="stats"><div class="card cb"><h3>${t('minimum')} (PC)</h3>${rq(g.pc?.min)}</div><div class="card cb"><h3>${t('recommended')} (PC)</h3>${rq(g.pc?.rec)}</div></div>${mob?`<h3>${t('mobile')}</h3>${mob}`:''}
-<h2>${t('yourDevice')}</h2>${r?`<p><span class="badge ${STATUS[r.status][1]}">${st(r.status)}</span> ${esc(r.note)}</p>${r.rows.length?`<div class="tw"><table><tr><th>${t('check')}</th><th>${t('yourDevice')}</th><th>${t('needed')}</th><th>${t('result')}</th></tr>${r.rows.map(x=>`<tr><td>${esc(x.l)}</td><td>${esc(x.have)}</td><td>${esc(x.need)}</td><td>${x.ok===null?t('insufficient'):x.ok?'✔ '+t('pass'):'✘ Fail'}</td></tr>`).join('')}</table></div>`:''}`:empty(t('chooseDevice'))}
-<p class="mut">${t('source')}: ${esc(g.src||DB.meta.source)} · ${t('updated')}: ${esc(g.upd||DB.meta.updated)} · <a href="${esc(g.url)}" target="_blank" rel="noopener">${t('official')}</a>. CPU/GPU tiers are this project's approximate classes, not benchmarks.</p>`)};
-PAGES.settings=()=>{const l=S.get('lang','en'),th=S.get('theme','dark');
-view(`<h1>${t('settings')}</h1><label>${t('language')}<select data-s="lang"><option value="en" ${l==='en'?'selected':''}>English</option><option value="ar" ${l==='ar'?'selected':''}>العربية</option><option value="fr" ${l==='fr'?'selected':''}>Français</option></select></label>
-<label>${t('theme')}<select data-s="theme"><option value="dark" ${th==='dark'?'selected':''} >${t('dark')}</option><option value="light" ${th==='light'?'selected':''} >${t('light')}</option></select></label>
-<div class="row"><button class="btn" data-a="expDev">${t('exportDevices')}</button><button class="btn" data-a="tests">${t('runTests')}</button><button class="btn" data-a="reset">${t('reset')}</button></div><div id="tests"></div>`)};
-PAGES.about=()=>view(`<h1>${t('about')}</h1><p>${t('tagline')} ${t('aboutText')}</p><div class="banner">${esc(DB.meta.notice)}</div><p>${t('openSource')}</p>`);
-ACT.fav=id=>{let f=S.get('favs',[]);f=f.includes(id)?f.filter(x=>x!==id):[...f,id];S.set('favs',f);toast(t('favoriteUpdated'));route()};
-ACT.report=()=>{const d=activeDev();if(!d)return;dl('gamescope-report.json',{generated:new Date().toISOString(),notice:DB.meta.notice,device:d,results:DB.games.map(g=>{const r=Compat.check(g,d);return{game:g.name,status:r.status,note:r.note,checks:r.rows}})})};
-ACT.reset=()=>{if(!confirm(t('resetConfirm')))return;Object.keys(localStorage).filter(k=>k.startsWith('gs_')).forEach(k=>localStorage.removeItem(k));applyPrefs();route()};
-ACT.tests=()=>{const r=Compat.selfTest();$('#tests').innerHTML=`<div class="tw"><table>${r.map(x=>`<tr><td>${esc(x.n)}</td><td>${x.a} (expected ${x.e})</td><td>${x.pass?'✔':'✘'}</td></tr>`).join('')}</table></div>`};
-document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b)ACT[b.dataset.a]?.(b.dataset.id)});
-document.addEventListener('submit',e=>{const f=e.target.dataset.form;if(f){e.preventDefault();FORMS[f](new FormData(e.target))}});
-const onF=e=>{const el=e.target;if(el.dataset.f!==undefined){F[el.dataset.f]=el.value;$('#res').innerHTML=body()}};
-document.addEventListener('input',onF);
-document.addEventListener('change',e=>{onF(e);const el=e.target,s=el.dataset.s;
-if(s==='lang'||s==='theme'){S.set(s,el.value);applyPrefs();route()}else if(s==='cmpA'){CMP.a=el.value;route()}else if(s==='cmpB'){CMP.b=el.value;route()}
-else if(el.id==='imp'&&el.files[0])importDevices(el.files[0])});
-(async()=>{applyPrefs();$('#menu').onclick=()=>$('#side').classList.toggle('open');window.addEventListener('hashchange',route);
-try{await DB.load();route()}catch(e){console.error(e);view(`<p class="err">Could not load game data: ${esc(e.message)}. Serve the folder over HTTP (for example <code>python -m http.server</code>) instead of opening the file directly.</p>`)}})();
-+p.max.toLocaleString('en-US')+'</b></p>':'';
-
-const F={q:'',genre:'',plat:'',price:'',st:''};let CUR=null,CUR_ONLY=false;
-const sel=(f,l,o)=>`<select data-f="${f}" aria-label="${l}"><option value="">${l}</option>${o.map(([v,n])=>`<option value="${v}" ${F[f]===v?'selected':''}>${esc(n)}</option>`).join('')}</select>`;
-function body(){const d=CUR,platform=d?(d.type==='console'?(Compat.fam[d.specs.model]||''):d.type):'',rank={full:0,adjust:1,below:2,unknown:3};let L=DB.games.filter(g=>(!F.q||g.name.toLowerCase().includes(F.q.toLowerCase()))&&(!F.genre||g.genre===F.genre)&&(!F.plat||g.platforms.includes(F.plat))&&(!CUR_ONLY||!d||g.platforms.includes(platform))&&(!F.price||(F.price==='free')===g.free)&&(!F.st||!d||Compat.check(g,d).status===F.st));L.sort((a,b)=>{if(d){const x=rank[Compat.check(a,d).status],y=rank[Compat.check(b,d).status];if(x!==y)return x-y}return a.name.localeCompare(b.name)});
-let h='';if(d){const c=counts(d);h=`<div class="stats"><div class="card"><b>${c.full}</b>${t('compatibleCount')}</div><div class="card"><b>${c.adjust}</b>${t('playable')}</div><div class="card"><b>${c.below+c.unknown}</b>${t('unsupported')}</div></div>`}
-return h+(L.length?grid(L,d):empty(t('noResults')))}
-function listPage(d,title,deviceOnly=false){CUR=d;CUR_ONLY=deviceOnly;const gs=[...new Set(DB.games.map(g=>g.genre))].map(x=>[x,x]);
-view(`<h1>${title}</h1>${d?`<p class="mut">${t('device')}: <b>${esc(d.name)}</b> <button class="btn" data-a="report">${t('export')}</button></p>`:''}
-<div class="filters"><input data-f="q" type="search" placeholder="${t('search')}" aria-label="${t('search')}" value="${esc(F.q)}">${sel('genre',t('genre'),gs)}${sel('plat',t('platform'),Object.entries(PLAT).map(([k])=>[k,pl(k)]))}${sel('price',t('price'),[['free',t('free')],['paid',t('paid')]])}${d?sel('st',t('status'),Object.keys(STATUS).map(k=>[k,st(k)])):''}</div><div id="res">${body()}</div>`)}
-PAGES.find=()=>{const d=activeDev();if(!d)return view(`<h1>${t('find')}</h1>${empty(t('chooseDevice'))}<div class="empty"><a class="btn pri" href="#select">${t('select')}</a></div>`);listPage(d,t('find'),true)};
-PAGES.library=()=>listPage(activeDev(),t('library'));
-PAGES.home=()=>{const rv=S.get('recent',[]).map(DB.game).filter(Boolean);
-view(`<section class="hero"><h1>${t('tagline')}</h1><p class="mut">${t('checkPc')}</p><a class="btn pri" href="#select">${t('cta')}</a></section>
-<div class="stats"><div class="card"><b>${DB.games.length}</b>${t('gamesInDb')}</div><div class="card"><b>${S.get('devices',[]).length}</b>${t('savedDevices')}</div><div class="card"><b>${S.get('favs',[]).length}</b>${t('favoritesLabel')}</div></div>
-<div class="banner">${esc(DB.meta.notice)}</div><h2>${t('recent')}</h2>${rv.length?grid(rv,activeDev()):empty(t('noGames'))}`)};
-PAGES.favorites=()=>{const l=S.get('favs',[]).map(DB.game).filter(Boolean);view(`<h1>${t('favorites')}</h1>${l.length?grid(l,activeDev()):empty(t('noGames'))}`)};
-const REQ={ram:t('ram'),vram:t('vram'),storage:t('storage'),cpu:t('cpu'),gpu:t('gpu'),socTier:t('chipset'),os:t('os')};
-PAGES.game=id=>{const g=DB.game(id);if(!g)return view(empty(t('gameNotFound'))+`<div class="empty"><a class="btn" href="#library">${t('backLibrary')}</a></div>`);
-S.set('recent',[id,...S.get('recent',[]).filter(x=>x!==id)].slice(0,8));const d=activeDev(),r=d&&Compat.check(g,d);
-const rq=q=>q?`<ul>${Object.entries(q).map(([k,v])=>`<li>${REQ[k]||k}: ${[].concat(v).join(', ')}</li>`).join('')}</ul>`:'<p class="mut">Insufficient Data</p>';
-const mob=g.mobile?Object.entries(g.mobile).map(([k,v])=>`<p><b>${pl(k)}</b>: ${Object.keys(v).length?Object.entries(v).map(([a,b])=>`${a} ${b}`).join(', '):t('insufficient')}</p>`).join(''):'';
-view(`<a href="#library">← ${t('library')}</a><div class="row"><img src="${cover(g)}" alt="${esc(g.name)}" data-fallback="${fallbackCover(g)}" onerror="this.onerror=null;this.src=this.dataset.fallback" style="max-width:320px;width:100%;object-fit:cover;aspect-ratio:16/9;border-radius:12px"><div><h1>${esc(g.name)}</h1><p class="mut">${esc(g.genre)} · ${esc(g.dev)} · ${t('released')} ${esc(g.date)} · ${g.free?t('freeLabel'):t('paidLabel')}</p><p >${esc(g.name)} — ${esc(g.genre)} — ${esc(g.dev)}</p><button class="btn" data-a="fav" data-id="${g.id}" >${t('favorite')}</button></div></div>
-<h2>${t('supported')}</h2><p>${g.platforms.map(p=>`<span class="badge mute" >${pl(p)}</span>`).join(' ')}</p>
-<div class="stats"><div class="card cb"><h3>${t('minimum')} (PC)</h3>${rq(g.pc?.min)}</div><div class="card cb"><h3>${t('recommended')} (PC)</h3>${rq(g.pc?.rec)}</div></div>${mob?`<h3>${t('mobile')}</h3>${mob}`:''}
-<h2>${t('yourDevice')}</h2>${r?`<p><span class="badge ${STATUS[r.status][1]}">${st(r.status)}</span> ${esc(r.note)}</p>${r.rows.length?`<div class="tw"><table><tr><th>${t('check')}</th><th>${t('yourDevice')}</th><th>${t('needed')}</th><th>${t('result')}</th></tr>${r.rows.map(x=>`<tr><td>${esc(x.l)}</td><td>${esc(x.have)}</td><td>${esc(x.need)}</td><td>${x.ok===null?t('insufficient'):x.ok?'✔ '+t('pass'):'✘ Fail'}</td></tr>`).join('')}</table></div>`:''}`:empty(t('chooseDevice'))}
 <p class="mut">${t('source')}: ${esc(g.src||DB.meta.source)} · ${t('updated')}: ${esc(g.upd||DB.meta.updated)} · <a href="${esc(g.url)}" target="_blank" rel="noopener">${t('official')}</a>. CPU/GPU tiers are this project's approximate classes, not benchmarks.</p>`)};
 PAGES.settings=()=>{const l=S.get('lang','en'),th=S.get('theme','dark');
 view(`<h1>${t('settings')}</h1><label>${t('language')}<select data-s="lang"><option value="en" ${l==='en'?'selected':''}>English</option><option value="ar" ${l==='ar'?'selected':''}>العربية</option><option value="fr" ${l==='fr'?'selected':''}>Français</option></select></label>
