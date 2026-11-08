@@ -1,5 +1,5 @@
 {
-  "notice": "Curated requirements linked to publisher/support sources where available. Some older entries may still need verification. CPU/GPU tiers are approximate project classes, not benchmark scores. Missing requirements are shown as unknown.",
+  "notice": "Compatibility requirements are a curated guide. Some added entries use approximate baseline tiers; FPS and build prices are estimates, not guaranteed benchmark or retail results.",
   "source": "Publisher and developer support pages; see each game's source link",
   "updated": "2026-11-08",
   "games": [
@@ -42,7 +42,8 @@
       "url": "https://www.minecraft.net",
       "src": "Minecraft official Java Edition system requirements",
       "upd": "2026-11-07",
-      "image": "https://images.unsplash.com/photo-1607513746994-51f730a44832?w=640&h=360&fit=crop"
+      "image": "https://images.unsplash.com/photo-1607513746994-51f730a44832?w=640&h=360&fit=crop",
+      "fpsBase": 100
     },
     {
       "id": "gta-v",
@@ -72,7 +73,8 @@
         }
       },
       "url": "https://www.rockstargames.com/gta-v",
-      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg"
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg",
+      "fpsBase": 70
     },
     {
       "id": "cyberpunk-2077",
@@ -115,7 +117,8 @@
       "url": "https://www.cyberpunk.net",
       "src": "CD PROJEKT RED official system requirements",
       "upd": "2026-11-07",
-      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg"
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg",
+      "fpsBase": 32
     },
     {
       "id": "cs2",
@@ -139,7 +142,8 @@
         }
       },
       "url": "https://www.counter-strike.net",
-      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg",
+      "fpsBase": 110
     },
     {
       "id": "fortnite",
@@ -180,7 +184,8 @@
       "url": "https://www.fortnite.com",
       "src": "Epic Games official PC requirements",
       "upd": "2026-11-07",
-      "image": "https://images.unsplash.com/photo-1589241062272-c0a000072dfa?w=640&h=360&fit=crop"
+      "image": "https://images.unsplash.com/photo-1589241062272-c0a000072dfa?w=640&h=360&fit=crop",
+      "fpsBase": 75
     },
     {
       "id": "valorant",
@@ -217,7 +222,8 @@
       "url": "https://playvalorant.com",
       "src": "Riot Games official PC requirements",
       "upd": "2026-11-07",
-      "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=640&h=360&fit=crop"
+      "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=640&h=360&fit=crop",
+      "fpsBase": 150
     },
     {
       "id": "rdr2",
@@ -258,7 +264,8 @@
       "url": "https://www.rockstargames.com/reddeadredemption2",
       "src": "Rockstar Games official PC requirements",
       "upd": "2026-11-07",
-      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg"
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg",
+      "fpsBase": 38
     },
     {
       "id": "forza-horizon-5",
@@ -289,7 +296,8 @@
         }
       },
       "url": "https://forza.net",
-      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg"
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg",
+      "fpsBase": 48
     },
     {
       "id": "roblox",
@@ -342,7 +350,8 @@
         }
       },
       "url": "https://www.callofduty.com/warzone",
-      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1962663/header.jpg"
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1962663/header.jpg",
+      "fpsBase": 42
     },
     {
       "id": "pubg-mobile",
@@ -419,7 +428,8 @@
       },
       "src": "HoYoverse official system requirements",
       "upd": "2026-11-07",
-      "image": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=640&h=360&fit=crop"
+      "image": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=640&h=360&fit=crop",
+      "fpsBase": 65
     },
     {
       "id": "free-fire",
@@ -481,7 +491,8 @@
         "ios": {}
       },
       "url": "https://www.minecraft.net",
-      "image": "https://images.unsplash.com/photo-1607513746994-51f730a44832?w=640&h=360&fit=crop"
+      "image": "https://images.unsplash.com/photo-1607513746994-51f730a44832?w=640&h=360&fit=crop",
+      "fpsBase": 110
     },
     {
       "id": "elden-ring",
@@ -524,7 +535,8 @@
       "url": "https://en.bandainamcoent.eu/elden-ring/elden-ring",
       "src": "Bandai Namco official system requirements",
       "upd": "2026-11-07",
-      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg"
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg",
+      "fpsBase": 48
     },
     {
       "id": "baldurs-gate-3",
@@ -565,7 +577,8 @@
       "url": "https://larian.com/support/faqs/system-requirements_47",
       "src": "Larian Studios official system requirements",
       "upd": "2026-11-07",
-      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg"
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg",
+      "fpsBase": 55
     },
     {
       "id": "hogwarts-legacy",
@@ -608,7 +621,8 @@
       "url": "https://portkeygamessupport.wbgames.com/hc/en-us/articles/8978925088403-Hogwarts-Legacy-PC-System-Requirements",
       "src": "Portkey Games official PC requirements",
       "upd": "2026-11-07",
-      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/990080/header.jpg"
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/990080/header.jpg",
+      "fpsBase": 35
     },
     {
       "id": "call-of-duty-mobile",
@@ -651,7 +665,8 @@
       "pc": {},
       "url": "https://www.ubisoft.com/game/assassins-creed/shadows",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/3159330/header.jpg",
-      "src": "Ubisoft official game page"
+      "src": "Ubisoft official game page",
+      "fpsBase": 28
     },
     {
       "id": "monster-hunter-wilds",
@@ -668,7 +683,8 @@
       "pc": {},
       "url": "https://www.monsterhunter.com/wilds/",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/2246340/header.jpg",
-      "src": "Capcom official game page"
+      "src": "Capcom official game page",
+      "fpsBase": 30
     },
     {
       "id": "helldivers-2",
@@ -684,7 +700,8 @@
       "pc": {},
       "url": "https://www.playstation.com/games/helldivers-2/",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/553850/header.jpg",
-      "src": "PlayStation official game page"
+      "src": "PlayStation official game page",
+      "fpsBase": 38
     },
     {
       "id": "stardew-valley",
@@ -710,7 +727,8 @@
       },
       "url": "https://www.stardewvalley.net/",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/413150/header.jpg",
-      "src": "Stardew Valley official website"
+      "src": "Stardew Valley official website",
+      "fpsBase": 160
     },
     {
       "id": "terraria",
@@ -736,7 +754,8 @@
       },
       "url": "https://terraria.org/",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg",
-      "src": "Terraria official website"
+      "src": "Terraria official website",
+      "fpsBase": 160
     },
     {
       "id": "apex-legends",
@@ -756,7 +775,8 @@
       "pc": {},
       "url": "https://www.ea.com/games/apex-legends",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg",
-      "src": "EA official game page"
+      "src": "EA official game page",
+      "fpsBase": 75
     },
     {
       "id": "the-witcher-3",
@@ -776,7 +796,8 @@
       "pc": {},
       "url": "https://www.thewitcher.com/",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg",
-      "src": "CD PROJEKT RED official game page"
+      "src": "CD PROJEKT RED official game page",
+      "fpsBase": 75
     },
     {
       "id": "palworld",
@@ -793,7 +814,8 @@
       "pc": {},
       "url": "https://www.pocketpair.jp/palworld",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1623730/header.jpg",
-      "src": "Pocketpair official game page"
+      "src": "Pocketpair official game page",
+      "fpsBase": 35
     },
     {
       "id": "among-us",
@@ -819,7 +841,8 @@
       },
       "url": "https://www.innersloth.com/games/among-us/",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
-      "src": "Innersloth official game page"
+      "src": "Innersloth official game page",
+      "fpsBase": 160
     },
     {
       "id": "league-of-legends",
@@ -834,7 +857,8 @@
       "pc": {},
       "url": "https://www.leagueoflegends.com/",
       "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=640&h=360&fit=crop",
-      "src": "Riot Games official game page"
+      "src": "Riot Games official game page",
+      "fpsBase": 130
     },
     {
       "id": "overwatch-2",
@@ -854,7 +878,8 @@
       "pc": {},
       "url": "https://overwatch.blizzard.com/",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/2357570/header.jpg",
-      "src": "Blizzard official game page"
+      "src": "Blizzard official game page",
+      "fpsBase": 90
     },
     {
       "id": "fall-guys",
@@ -874,7 +899,344 @@
       "pc": {},
       "url": "https://www.fallguys.com/",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1097150/header.jpg",
-      "src": "Epic Games official game page"
+      "src": "Epic Games official game page",
+      "fpsBase": 90
+    },
+    {
+      "id": "dota-2",
+      "name": "Dota 2",
+      "genre": "MOBA",
+      "dev": "Valve",
+      "date": "2013-07-09",
+      "free": true,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 4,
+          "gpu": 3,
+          "ram": 8,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.dota2.com/",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 100,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "team-fortress-2",
+      "name": "Team Fortress 2",
+      "genre": "FPS",
+      "dev": "Valve",
+      "date": "2007-10-10",
+      "free": true,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 3,
+          "gpu": 2,
+          "ram": 4,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.teamfortress.com/",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 130,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "portal-2",
+      "name": "Portal 2",
+      "genre": "Puzzle",
+      "dev": "Valve",
+      "date": "2011-04-19",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 3,
+          "gpu": 2,
+          "ram": 4,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.thinkwithportals.com/",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/620/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 160,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "left-4-dead-2",
+      "name": "Left 4 Dead 2",
+      "genre": "Action",
+      "dev": "Valve",
+      "date": "2009-11-17",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 3,
+          "gpu": 2,
+          "ram": 4,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.l4d.com/",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 140,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "euro-truck-simulator-2",
+      "name": "Euro Truck Simulator 2",
+      "genre": "Simulation",
+      "dev": "SCS Software",
+      "date": "2012-10-18",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 4,
+          "gpu": 3,
+          "ram": 8,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://eurotrucksimulator2.com/",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/227300/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 75,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "resident-evil-4-remake",
+      "name": "Resident Evil 4",
+      "genre": "Survival Horror",
+      "dev": "Capcom",
+      "date": "2023-03-24",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 6,
+          "gpu": 6,
+          "ram": 8,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.residentevil.com/re4/",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 35,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "doom-eternal",
+      "name": "DOOM Eternal",
+      "genre": "FPS",
+      "dev": "id Software / Bethesda",
+      "date": "2020-03-20",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 5,
+          "gpu": 5,
+          "ram": 8,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://bethesda.net/en/game/doom",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/782330/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 90,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "sea-of-thieves",
+      "name": "Sea of Thieves",
+      "genre": "Adventure",
+      "dev": "Rare / Xbox Game Studios",
+      "date": "2018-03-20",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 5,
+          "gpu": 4,
+          "ram": 8,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.seaofthieves.com/",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1172620/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 65,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "battlefield-1",
+      "name": "Battlefield 1",
+      "genre": "FPS",
+      "dev": "DICE / Electronic Arts",
+      "date": "2016-10-21",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 5,
+          "gpu": 4,
+          "ram": 8,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.ea.com/games/battlefield/battlefield-1",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1238840/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 55,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "forza-horizon-4",
+      "name": "Forza Horizon 4",
+      "genre": "Racing",
+      "dev": "Playground Games",
+      "date": "2018-10-02",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 5,
+          "gpu": 4,
+          "ram": 8,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://forza.net/",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1293830/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 60,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "hollow-knight",
+      "name": "Hollow Knight",
+      "genre": "Metroidvania",
+      "dev": "Team Cherry",
+      "date": "2017-02-24",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 3,
+          "gpu": 2,
+          "ram": 4,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.hollowknight.com/",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 160,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "hades",
+      "name": "Hades",
+      "genre": "Action Roguelike",
+      "dev": "Supergiant Games",
+      "date": "2020-09-17",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 3,
+          "gpu": 2,
+          "ram": 4,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://www.supergiantgames.com/games/hades/",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/header.jpg",
+      "src": "Official game website; baseline requirements in GameScope are approximate and should be verified against the current publisher page.",
+      "upd": "2026-11-08",
+      "fpsBase": 140,
+      "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
     }
   ]
 }
