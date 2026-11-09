@@ -443,5 +443,115 @@
     "id": "i9-9900k",
     "name": "Intel Core i9-9900K",
     "tier": 7
+  },
+  {
+    "id": "core2duo-e8400",
+    "name": "Intel Core 2 Duo E8400",
+    "tier": 1
+  },
+  {
+    "id": "core2quad-q6600",
+    "name": "Intel Core 2 Quad Q6600",
+    "tier": 1
+  },
+  {
+    "id": "pentium-g620",
+    "name": "Intel Pentium G620",
+    "tier": 1
+  },
+  {
+    "id": "i3-2100",
+    "name": "Intel Core i3-2100",
+    "tier": 1
+  },
+  {
+    "id": "i5-2400",
+    "name": "Intel Core i5-2400",
+    "tier": 2
+  },
+  {
+    "id": "i7-2600",
+    "name": "Intel Core i7-2600",
+    "tier": 3
+  },
+  {
+    "id": "i3-3220",
+    "name": "Intel Core i3-3220",
+    "tier": 2
+  },
+  {
+    "id": "i5-3470",
+    "name": "Intel Core i5-3470",
+    "tier": 3
+  },
+  {
+    "id": "i7-3770",
+    "name": "Intel Core i7-3770",
+    "tier": 4
+  },
+  {
+    "id": "i5-4460",
+    "name": "Intel Core i5-4460",
+    "tier": 3
+  },
+  {
+    "id": "i3-6100",
+    "name": "Intel Core i3-6100",
+    "tier": 3
+  },
+  {
+    "id": "fx-4300",
+    "name": "AMD FX-4300",
+    "tier": 1
+  },
+  {
+    "id": "fx-6300",
+    "name": "AMD FX-6300",
+    "tier": 2
+  },
+  {
+    "id": "fx-8350",
+    "name": "AMD FX-8350",
+    "tier": 3
+  },
+  {
+    "id": "phenom-ii-x4-955",
+    "name": "AMD Phenom II X4 955",
+    "tier": 1
+  },
+  {
+    "id": "athlon-ii-x4-640",
+    "name": "AMD Athlon II X4 640",
+    "tier": 1
+  },
+  {
+    "id": "a8-7600",
+    "name": "AMD A8-7600 APU",
+    "tier": 2
+  },
+  {
+    "id": "a10-7850k",
+    "name": "AMD A10-7850K APU",
+    "tier": 2
+  },
+  {
+    "id": "ryzen-3-1200",
+    "name": "AMD Ryzen 3 1200",
+    "tier": 3
+  },
+  {
+    "id": "ryzen-3-2200g",
+    "name": "AMD Ryzen 3 2200G",
+    "tier": 3
+  },
+  {
+    "id": "ryzen-5-2400g",
+    "name": "AMD Ryzen 5 2400G",
+    "tier": 4
+  },
+  {
+    "id": "ryzen-3-3100",
+    "name": "AMD Ryzen 3 3100",
+    "tier": 4
   }
 ]
