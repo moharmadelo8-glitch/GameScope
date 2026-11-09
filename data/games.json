@@ -1,7 +1,7 @@
 {
-  "notice": "Compatibility requirements are a curated guide. Some added entries use approximate baseline tiers; FPS and build prices are estimates, not guaranteed benchmark or retail results.",
+  "notice": "Compatibility requirements are curated guidance. Legacy game baselines and hardware tiers are approximate; FPS and build prices are estimates, not guaranteed benchmark or retail results. Verify current OS support and driver compatibility.",
   "source": "Publisher and developer support pages; see each game's source link",
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "games": [
     {
       "id": "minecraft-java",
@@ -1238,6 +1238,886 @@
       "upd": "2026-11-08",
       "fpsBase": 140,
       "requirementsNote": "Approximate baseline tiers for discovery; not a substitute for the publisher's current requirements."
+    },
+    {
+      "id": "portal",
+      "name": "Portal",
+      "genre": "Puzzle",
+      "dev": "Valve",
+      "date": "2007",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/400/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/400/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "half-life-2",
+      "name": "Half-Life 2",
+      "genre": "FPS",
+      "dev": "Valve",
+      "date": "2004",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/220/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/220/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "counter-strike-source",
+      "name": "Counter-Strike: Source",
+      "genre": "FPS",
+      "dev": "Valve",
+      "date": "2004",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/240/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/240/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "garrys-mod",
+      "name": "Garry's Mod",
+      "genre": "Sandbox",
+      "dev": "Facepunch Studios",
+      "date": "2006",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 3,
+          "gpu": 3,
+          "ram": 8,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/4000/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/4000/header.jpg",
+      "fpsBase": 90
+    },
+    {
+      "id": "skyrim-2011",
+      "name": "The Elder Scrolls V: Skyrim (2011)",
+      "genre": "RPG",
+      "dev": "Bethesda",
+      "date": "2011",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 3,
+          "gpu": 3,
+          "ram": 8,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/72850/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/72850/header.jpg",
+      "fpsBase": 85
+    },
+    {
+      "id": "fallout-3",
+      "name": "Fallout 3",
+      "genre": "RPG",
+      "dev": "Bethesda",
+      "date": "2008",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/22300/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/22300/header.jpg",
+      "fpsBase": 100
+    },
+    {
+      "id": "fallout-new-vegas",
+      "name": "Fallout: New Vegas",
+      "genre": "RPG",
+      "dev": "Obsidian",
+      "date": "2010",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/22380/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/22380/header.jpg",
+      "fpsBase": 100
+    },
+    {
+      "id": "gta-san-andreas",
+      "name": "Grand Theft Auto: San Andreas",
+      "genre": "Action-Adventure",
+      "dev": "Rockstar",
+      "date": "2005",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 1,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/12120/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/12120/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "gta-iv",
+      "name": "Grand Theft Auto IV",
+      "genre": "Action-Adventure",
+      "dev": "Rockstar",
+      "date": "2008",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 3,
+          "gpu": 3,
+          "ram": 8,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/12210/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/12210/header.jpg",
+      "fpsBase": 55
+    },
+    {
+      "id": "mount-blade-warband",
+      "name": "Mount & Blade: Warband",
+      "genre": "Action RPG",
+      "dev": "TaleWorlds",
+      "date": "2010",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/48700/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/48700/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "trackmania-nations-forever",
+      "name": "TrackMania Nations Forever",
+      "genre": "Racing",
+      "dev": "Nadeo",
+      "date": "2008",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 1,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/11020/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/11020/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "plants-vs-zombies",
+      "name": "Plants vs. Zombies GOTY",
+      "genre": "Strategy",
+      "dev": "PopCap",
+      "date": "2009",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 1,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/3590/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/3590/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "undertale",
+      "name": "Undertale",
+      "genre": "RPG",
+      "dev": "Toby Fox",
+      "date": "2015",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/391540/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/391540/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "ftl",
+      "name": "FTL: Faster Than Light",
+      "genre": "Strategy",
+      "dev": "Subset Games",
+      "date": "2012",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/212680/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/212680/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "papers-please",
+      "name": "Papers, Please",
+      "genre": "Simulation",
+      "dev": "Lucas Pope",
+      "date": "2013",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/239030/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/239030/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "hotline-miami",
+      "name": "Hotline Miami",
+      "genre": "Action",
+      "dev": "Dennaton Games",
+      "date": "2012",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/219150/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/219150/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "limbo",
+      "name": "LIMBO",
+      "genre": "Platform",
+      "dev": "Playdead",
+      "date": "2010",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/48000/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/48000/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "fez",
+      "name": "FEZ",
+      "genre": "Platform",
+      "dev": "Polytron",
+      "date": "2013",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/224760/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/224760/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "binding-of-isaac-rebirth",
+      "name": "The Binding of Isaac: Rebirth",
+      "genre": "Roguelike",
+      "dev": "Nicalis",
+      "date": "2014",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/250900/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/250900/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "dont-starve",
+      "name": "Don't Starve",
+      "genre": "Survival",
+      "dev": "Klei",
+      "date": "2013",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/219740/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/219740/header.jpg",
+      "fpsBase": 120
+    },
+    {
+      "id": "age-of-empires-ii-hd",
+      "name": "Age of Empires II: HD Edition",
+      "genre": "Strategy",
+      "dev": "Forgotten Empires",
+      "date": "2013",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 2,
+          "gpu": 1,
+          "ram": 2,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 3,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/221380/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/221380/header.jpg",
+      "fpsBase": 100
+    },
+    {
+      "id": "need-for-speed-underground-2",
+      "name": "Need for Speed: Underground 2",
+      "genre": "Racing",
+      "dev": "EA Black Box",
+      "date": "2004",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 1,
+          "vram": 1,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        },
+        "rec": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 4,
+          "vram": 2,
+          "storage": 3,
+          "os": [
+            "Windows 10",
+            "Windows 11"
+          ]
+        }
+      },
+      "url": "https://store.steampowered.com/app/2320/",
+      "src": "Publisher/store information; legacy hardware baseline is approximate",
+      "upd": "2026-11-09",
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/2320/header.jpg",
+      "fpsBase": 120
     }
   ]
 }
