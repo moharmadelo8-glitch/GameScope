@@ -490,5 +490,155 @@
     "name": "Intel Arc A380",
     "tier": 3,
     "vram": 6
+  },
+  {
+    "id": "geforce-8400gs",
+    "name": "NVIDIA GeForce 8400 GS",
+    "tier": 1,
+    "vram": 0
+  },
+  {
+    "id": "geforce-gt-610",
+    "name": "NVIDIA GeForce GT 610",
+    "tier": 1,
+    "vram": 1
+  },
+  {
+    "id": "geforce-gt-730",
+    "name": "NVIDIA GeForce GT 730",
+    "tier": 1,
+    "vram": 2
+  },
+  {
+    "id": "geforce-gt-1030",
+    "name": "NVIDIA GeForce GT 1030",
+    "tier": 2,
+    "vram": 2
+  },
+  {
+    "id": "gtx-550-ti",
+    "name": "NVIDIA GeForce GTX 550 Ti",
+    "tier": 1,
+    "vram": 1
+  },
+  {
+    "id": "gtx-560",
+    "name": "NVIDIA GeForce GTX 560",
+    "tier": 2,
+    "vram": 1
+  },
+  {
+    "id": "gtx-650",
+    "name": "NVIDIA GeForce GTX 650",
+    "tier": 2,
+    "vram": 1
+  },
+  {
+    "id": "gtx-750",
+    "name": "NVIDIA GeForce GTX 750",
+    "tier": 2,
+    "vram": 1
+  },
+  {
+    "id": "gtx-950",
+    "name": "NVIDIA GeForce GTX 950",
+    "tier": 3,
+    "vram": 2
+  },
+  {
+    "id": "gtx-1050-2gb",
+    "name": "NVIDIA GeForce GTX 1050 2GB",
+    "tier": 3,
+    "vram": 2
+  },
+  {
+    "id": "radeon-hd-5450",
+    "name": "AMD Radeon HD 5450",
+    "tier": 1,
+    "vram": 0
+  },
+  {
+    "id": "radeon-hd-6670",
+    "name": "AMD Radeon HD 6670",
+    "tier": 1,
+    "vram": 1
+  },
+  {
+    "id": "radeon-hd-7750",
+    "name": "AMD Radeon HD 7750",
+    "tier": 2,
+    "vram": 1
+  },
+  {
+    "id": "radeon-r7-250",
+    "name": "AMD Radeon R7 250",
+    "tier": 1,
+    "vram": 2
+  },
+  {
+    "id": "radeon-r7-360",
+    "name": "AMD Radeon R7 360",
+    "tier": 2,
+    "vram": 2
+  },
+  {
+    "id": "radeon-r9-270",
+    "name": "AMD Radeon R9 270",
+    "tier": 3,
+    "vram": 2
+  },
+  {
+    "id": "radeon-r9-280",
+    "name": "AMD Radeon R9 280",
+    "tier": 3,
+    "vram": 3
+  },
+  {
+    "id": "radeon-r9-380",
+    "name": "AMD Radeon R9 380",
+    "tier": 3,
+    "vram": 4
+  },
+  {
+    "id": "radeon-rx-460",
+    "name": "AMD Radeon RX 460",
+    "tier": 2,
+    "vram": 2
+  },
+  {
+    "id": "radeon-rx-560",
+    "name": "AMD Radeon RX 560",
+    "tier": 3,
+    "vram": 4
+  },
+  {
+    "id": "radeon-rx-550",
+    "name": "AMD Radeon RX 550",
+    "tier": 2,
+    "vram": 2
+  },
+  {
+    "id": "radeon-rx-570",
+    "name": "AMD Radeon RX 570",
+    "tier": 4,
+    "vram": 4
+  },
+  {
+    "id": "radeon-rx-6400",
+    "name": "AMD Radeon RX 6400",
+    "tier": 3,
+    "vram": 4
+  },
+  {
+    "id": "intel-hd-4000",
+    "name": "Intel HD Graphics 4000",
+    "tier": 1,
+    "vram": 0
+  },
+  {
+    "id": "intel-hd-4600",
+    "name": "Intel HD Graphics 4600",
+    "tier": 1,
+    "vram": 0
   }
 ]
