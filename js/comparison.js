@@ -13,7 +13,7 @@ const specRows=(a,b)=>{
 const keys=['cpu','gpu','ram','vram','os','storage','res','brand','model','soc','android','ios'];
 const rows=keys.filter(k=>[a,b].some(d=>d.specs?.[k]!==null&&d.specs?.[k]!==undefined&&d.specs?.[k]!==''));
 return rows.map(k=>{
-const val=d=>{let v=d.specs?.[k];if(v===null||v===undefined||v==='')return ct('empty');if(k==='model'&&d.type==='console')return conName(v);if(['ram','vram','storage'].includes(k))return v+' GB';return String(v)};
+const val=d=>{let v=d.specs?.[k];if(v===null||v===undefined||v==='')return ct('empty');if(k==='model'&&d.type==='console')return conName(v);if(k==='cpu')return DB.cpu(v)?.name||String(v);if(k==='gpu')return DB.gpu(v)?.name||String(v);if(k==='soc')return DB.mobileCPU(v)?.name||String(v);if(['ram','vram','storage'].includes(k))return v+' GB';return String(v)};
 return '<tr><th>'+esc(t(k==='soc'?'chipset':k)||k)+'</th><td>'+esc(val(a))+'</td><td>'+esc(val(b))+'</td></tr>';
 }).join('');
 };
@@ -27,7 +27,7 @@ const ca=counts(A),cb=counts(B),pA=platformOf(A),pB=platformOf(B);
 const options=(chosen,other)=>ds.map(d=>'<option value="'+esc(d.id)+'" '+(d.id===chosen.id?'selected':'')+' '+(d.id===other.id?'disabled':'')+'>'+esc(d.name)+'</option>').join('');
 const relevant=DB.games.filter(g=>statusFor(g,A)!==null||statusFor(g,B)!==null);
 const common=DB.games.filter(g=>g.platforms?.includes(pA)&&g.platforms?.includes(pB)).length;
-const diff=relevant.filter(g=>statusFor(g,A)!==statusFor(g,B));
+const diff=DB.games.filter(g=>g.platforms?.includes(pA)&&g.platforms?.includes(pB)&&statusFor(g,A)!==statusFor(g,B));
 const cell=s=>s===null?'<span class="badge mute">'+ct('available')+'</span>':'<span class="badge '+(STATUS[s]?.[1]||'mute')+'">'+st(s)+'</span>';
 view('<h1>'+t('compare')+'</h1><p class="mut">'+ct('hint')+'</p>'+
 '<div class="filters"><label>'+t('device')+' A<select data-s="cmpA" aria-label="Device A">'+options(A,B)+'</select></label><label>'+t('device')+' B<select data-s="cmpB" aria-label="Device B">'+options(B,A)+'</select></label></div>'+
