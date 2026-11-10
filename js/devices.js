@@ -37,7 +37,16 @@ FORMS.dev=fd=>{
  ds.push(d);S.set('devices',ds);S.set('active',d.id);toast(t('saveSuccess'));location.hash='find';
 };
 const specsText=d=>Object.entries(d.specs).filter(([,v])=>v!==null&&v!=='').map(([k,v])=>`${k}: ${k==='model'&&d.type==='console'?conName(v):v}`).join(' · ')||t('noSpecs');
-PAGES.devices=()=>{const ds=S.get('devices',[]),a=S.get('active');view(`<h1>${t('devices')}</h1><div class="row"><a class="btn pri" href="#select" >${t('addDevice')}</a><button class="btn" data-a="expDev" >${t('exportDevices')}</button><label class="btn">${t('import')}<input id="imp" type="file" accept="application/json" hidden></label></div>${ds.length?`<div class="grid">${ds.map(d=>`<div class="card cb"><h3>${esc(d.name)}</h3><span class="badge mute">${t(d.type)}</span>${d.id===a?` <span class="badge ok">${t('active')}</span>`:''}<p class="mut">${esc(specsText(d))}</p><div class="row"><button class="btn" data-a="use" data-id="${d.id}" >${t('use')}</button><button class="btn" data-a="del" data-id="${d.id}" >${t('delete')}</button></div></div>`).join('')}</div>`:empty(t('noDevices'))}` )};
+const hardwareInfo=d=>{
+ const out=[];
+ if(d.type==='pc'){
+  const c=DB.cpu(d.specs.cpu),g=DB.gpu(d.specs.gpu);
+  if(c){const a=[];if(c.cores)a.push(c.cores+' cores / '+(c.threads||'?')+' threads');if(c.socket)a.push(c.socket);if(c.baseClockGHz)a.push(c.baseClockGHz+' GHz base');if(c.boostClockGHz)a.push(c.boostClockGHz+' GHz boost');if(c.generation)a.push(c.generation);if(!a.length)a.push('CPU tier '+c.tier);out.push(c.name+': '+a.join(' · '))}
+  if(g){const a=[];if(g.vram)a.push(g.vram+' GB VRAM');if(g.vramType)a.push(g.vramType);if(g.busWidthBit)a.push(g.busWidthBit+'-bit bus');if(g.tdpW)a.push(g.tdpW+' W');if(!a.length)a.push('GPU tier '+g.tier);out.push(g.name+': '+a.join(' · '))}
+ }else if(d.type==='android'&&d.specs.soc){const c=DB.mobileCPU(d.specs.soc);if(c)out.push(c.name+' · SoC tier '+c.tier)}
+ return out.map(x=>'<p class="mut">'+esc(x)+'</p>').join('');
+};
+PAGES.devices=()=>{const ds=S.get('devices',[]),a=S.get('active');view(`<h1>${t('devices')}</h1><div class="row"><a class="btn pri" href="#select" >${t('addDevice')}</a><button class="btn" data-a="expDev" >${t('exportDevices')}</button><label class="btn">${t('import')}<input id="imp" type="file" accept="application/json" hidden></label></div>${ds.length?`<div class="grid">${ds.map(d=>`<div class="card cb"><h3>${esc(d.name)}</h3><span class="badge mute">${t(d.type)}</span>${d.id===a?` <span class="badge ok">${t('active')}</span>`:''}<p class="mut">${esc(specsText(d))}</p>${hardwareInfo(d)}<div class="row"><button class="btn" data-a="use" data-id="${d.id}" >${t('use')}</button><button class="btn" data-a="del" data-id="${d.id}" >${t('delete')}</button></div></div>`).join('')}</div>`:empty(t('noDevices'))}` )};
 ACT.use=id=>{S.set('active',id);toast(t('activeDevice'));route()};
 ACT.del=id=>{if(!confirm(t('deleteConfirm')))return;S.set('devices',S.get('devices',[]).filter(d=>d.id!==id));if(S.get('active')===id)S.set('active','');route()};
 ACT.expDev=()=>dl('gamescope-devices.json',S.get('devices',[]));
