@@ -1,7 +1,7 @@
 {
-  "notice": "Compatibility requirements are curated guidance. Legacy game baselines and hardware tiers are approximate; FPS and build prices are estimates, not guaranteed benchmark or retail results. Verify current OS support and driver compatibility.",
+  "notice": "Compatibility requirements are curated guidance. Legacy baselines may be conservative estimates and are labelled as such. FPS is shown only when tied to a verified benchmark source. Verify current OS support and driver compatibility.",
   "source": "Publisher and developer support pages; see each game's source link",
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "games": [
     {
       "id": "minecraft-java",
@@ -2077,6 +2077,182 @@
       "src": "EA Need for Speed franchise page; historical system baseline is approximate",
       "upd": "2026-11-09",
       "fpsBase": 120
+    },
+    {
+      "id": "nfs-most-wanted-2005",
+      "name": "Need for Speed: Most Wanted (2005)",
+      "genre": "Racing",
+      "dev": "EA Black Box / Electronic Arts",
+      "date": "2005-11-15",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 1,
+          "storage": 3
+        }
+      },
+      "url": "https://www.ea.com/games/need-for-speed",
+      "src": "Legacy PC title; conservative baseline, verify modern Windows compatibility",
+      "upd": "2026-11-10"
+    },
+    {
+      "id": "nfs-underground-2",
+      "name": "Need for Speed: Underground 2",
+      "genre": "Racing",
+      "dev": "EA Black Box / Electronic Arts",
+      "date": "2004-11-09",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 1,
+          "storage": 3
+        }
+      },
+      "url": "https://www.ea.com/games/need-for-speed",
+      "src": "Legacy PC title; conservative baseline, verify modern Windows compatibility",
+      "upd": "2026-11-10"
+    },
+    {
+      "id": "gta-vice-city",
+      "name": "Grand Theft Auto: Vice City",
+      "genre": "Action-Adventure",
+      "dev": "Rockstar Games",
+      "date": "2002-10-29",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 1,
+          "storage": 2
+        }
+      },
+      "url": "https://www.ea.com/games/need-for-speed",
+      "src": "Legacy PC title; conservative baseline, verify modern Windows compatibility",
+      "upd": "2026-11-10"
+    },
+    {
+      "id": "max-payne",
+      "name": "Max Payne",
+      "genre": "Third-person Shooter",
+      "dev": "Remedy Entertainment",
+      "date": "2001-07-23",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 1,
+          "storage": 1
+        }
+      },
+      "url": "https://www.ea.com/games/need-for-speed",
+      "src": "Legacy PC title; conservative baseline, verify modern Windows compatibility",
+      "upd": "2026-11-10"
+    },
+    {
+      "id": "max-payne-2",
+      "name": "Max Payne 2: The Fall of Max Payne",
+      "genre": "Third-person Shooter",
+      "dev": "Remedy Entertainment",
+      "date": "2003-10-14",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 1,
+          "storage": 2
+        }
+      },
+      "url": "https://www.ea.com/games/need-for-speed",
+      "src": "Legacy PC title; conservative baseline, verify modern Windows compatibility",
+      "upd": "2026-11-10"
+    },
+    {
+      "id": "call-of-duty-4",
+      "name": "Call of Duty 4: Modern Warfare",
+      "genre": "FPS",
+      "dev": "Infinity Ward / Activision",
+      "date": "2007-11-05",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 1,
+          "storage": 8
+        }
+      },
+      "url": "https://www.ea.com/games/need-for-speed",
+      "src": "Legacy PC title; conservative baseline, verify modern Windows compatibility",
+      "upd": "2026-11-10"
+    },
+    {
+      "id": "bioshock-2007",
+      "name": "BioShock (2007)",
+      "genre": "FPS",
+      "dev": "2K / Irrational Games",
+      "date": "2007-08-21",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 2,
+          "gpu": 2,
+          "ram": 1,
+          "storage": 8
+        }
+      },
+      "url": "https://store.steampowered.com/app/7670/BioShock/",
+      "src": "Legacy PC title; conservative baseline, verify modern Windows compatibility",
+      "upd": "2026-11-10"
+    },
+    {
+      "id": "quake-live",
+      "name": "Quake Live",
+      "genre": "FPS",
+      "dev": "id Software",
+      "date": "2010-02-24",
+      "free": false,
+      "platforms": [
+        "pc"
+      ],
+      "pc": {
+        "min": {
+          "cpu": 1,
+          "gpu": 1,
+          "ram": 1,
+          "storage": 1
+        }
+      },
+      "url": "https://store.steampowered.com/app/282440/Quake_Live/",
+      "src": "Legacy PC title; conservative baseline, verify modern Windows compatibility",
+      "upd": "2026-11-10"
     }
   ]
 }

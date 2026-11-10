@@ -1,16 +1,6 @@
 const STATUS={full:['compatible','ok'],adjust:['adjust','warn'],below:['below','bad'],unknown:['unknown','mute']};
 const PLAT={pc:'pc',android:'android',ios:'ios',ps4:'ps4',ps5:'ps5',xb1:'xb1',xbs:'xbs',switch:'switch',switch2:'switch2'};const st=k=>t(STATUS[k]?.[0]||k),pl=k=>t(PLAT[k]||k);
 const STEAM_ART={'gta-v':'271590','cyberpunk-2077':'1091500','cs2':'730','rdr2':'1174180','forza-horizon-5':'1551360','warzone':'1962663','elden-ring':'1245620','baldurs-gate-3':'1086940','hogwarts-legacy':'990080'};const fallbackCover=g=>{const h=[...g.name].reduce((a,c)=>a+c.charCodeAt(0),0)%360;return 'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="hsl(${h},55%,25%)"/><stop offset="1" stop-color="#101522"/></linearGradient></defs><rect width="640" height="360" fill="url(#g)"/><path d="M0 290L640 90V360H0Z" fill="hsl(${h},55%,18%)" opacity=".65"/><text x="320" y="185" font-size="32" fill="white" text-anchor="middle" font-family="Arial,sans-serif">${esc(g.name.slice(0,34))}</text><text x="320" y="225" font-size="16" fill="#d8d8e8" text-anchor="middle">GAMESCOPE</text></svg>`)};const cover=g=>g.image|| (STEAM_ART[g.id]? 'https://cdn.cloudflare.steamstatic.com/steam/apps/'+STEAM_ART[g.id]+'/header.jpg':fallbackCover(g));
-const fpsEstimate=(g,d)=>{
- if(!d||d.type!=='pc'||!g.fpsBase)return null;
- const cpu=DB.cpu(d.specs?.cpu),gpu=DB.gpu(d.specs?.gpu);
- if(!cpu||!gpu)return null;
- const res=d.specs?.res||'1920x1080';
- const factor=res==='3840x2160'?.55:res==='2560x1440'?.76:res==='1280x720'?1.22:1;
- const gpuFactor=.55+Number(gpu.tier||5)*.09,cpuFactor=Math.min(1.08,.80+Math.max(0,Number(cpu.tier||3)-3)*.04);
- const mid=Math.max(12,Math.round(Number(g.fpsBase)*gpuFactor*cpuFactor*factor));
- return {min:Math.max(8,Math.round(mid*.78)),max:Math.round(mid*1.22)};
-};
 const buildEstimate=d=>{
  if(!d||d.type!=='pc')return null;
  const cpu=DB.cpu(d.specs?.cpu),gpu=DB.gpu(d.specs?.gpu);
@@ -23,10 +13,9 @@ const buildEstimate=d=>{
  const hi=c[1]+g[1]+Math.round(ram*21.25)+Math.round(storage/1024*273)+350;
  return {min:Math.round(lo/10)*10,max:Math.round(hi/10)*10};
 };
-const fpsLabel=f=>f?'<p class="fps-est">≈ '+f.min+'–'+f.max+' FPS <small>'+t('fpsEstimate')+'</small></p>':'';
 const priceLabel=p=>p?'<p class="price-est">'+t('buildEstimate')+': <b>$'+p.min.toLocaleString('en-US')+'–$'+p.max.toLocaleString('en-US')+'</b></p>':'';
 const card=(g,d)=>{const r=d&&Compat.check(g,d),f=S.get('favs',[]).includes(g.id);
-return `<article class="card"><img src="${cover(g)}" data-fallback="${fallbackCover(g)}" alt="${esc(g.name)}" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback"><div class="cb"><h3>${esc(g.name)}</h3><p class="mut">${esc(g.genre)} · ${g.free?t('freeLabel'):t('paidLabel')}</p>${r?`<span class="badge ${STATUS[r.status][1]}">${st(r.status)}</span><p class="mut">${esc(r.bott)}</p>`:''}${fpsLabel(fpsEstimate(g,d))}<div class="row"><a class="btn" href="#game/${g.id}">${t('details')}</a><button class="btn" data-a="fav" data-id="${g.id}" aria-label="${t('favorite')}" title="${t('favorite')}">${f?'★':'☆'}</button></div></div></article>`};
+return `<article class="card"><img src="${cover(g)}" data-fallback="${fallbackCover(g)}" alt="${esc(g.name)}" loading="lazy" onerror="this.onerror=null;this.src=this.dataset.fallback"><div class="cb"><h3>${esc(g.name)}</h3><p class="mut">${esc(g.genre)} · ${g.free?t('freeLabel'):t('paidLabel')}</p>${r?`<span class="badge ${STATUS[r.status][1]}">${st(r.status)}</span><p class="mut">${esc(r.bott)}</p>`:''}<div class="row"><a class="btn" href="#game/${g.id}">${t('details')}</a><button class="btn" data-a="fav" data-id="${g.id}" aria-label="${t('favorite')}" title="${t('favorite')}">${f?'★':'☆'}</button></div></div></article>`};
 const grid=(l,d)=>`<div class="grid">${l.map(g=>card(g,d)).join('')}</div>`;
 const F={q:'',genre:'',plat:'',price:'',st:''};let CUR=null,CUR_ONLY=false;
 const sel=(f,l,o)=>`<select data-f="${f}" aria-label="${l}"><option value="">${l}</option>${o.map(([v,n])=>`<option value="${v}" ${F[f]===v?'selected':''}>${esc(n)}</option>`).join('')}</select>`;
@@ -51,7 +40,7 @@ const mob=g.mobile?Object.entries(g.mobile).map(([k,v])=>`<p><b>${pl(k)}</b>: ${
 view(`<a href="#library">← ${t('library')}</a><div class="row"><img src="${cover(g)}" alt="${esc(g.name)}" data-fallback="${fallbackCover(g)}" onerror="this.onerror=null;this.src=this.dataset.fallback" style="max-width:320px;width:100%;object-fit:cover;aspect-ratio:16/9;border-radius:12px"><div><h1>${esc(g.name)}</h1><p class="mut">${esc(g.genre)} · ${esc(g.dev)} · ${t('released')} ${esc(g.date)} · ${g.free?t('freeLabel'):t('paidLabel')}</p><p >${esc(g.name)} — ${esc(g.genre)} — ${esc(g.dev)}</p><button class="btn" data-a="fav" data-id="${g.id}" >${t('favorite')}</button></div></div>
 <h2>${t('supported')}</h2><p>${g.platforms.map(p=>`<span class="badge mute" >${pl(p)}</span>`).join(' ')}</p>
 <div class="stats"><div class="card cb"><h3>${t('minimum')} (PC)</h3>${rq(g.pc?.min)}</div><div class="card cb"><h3>${t('recommended')} (PC)</h3>${rq(g.pc?.rec)}</div></div>${mob?`<h3>${t('mobile')}</h3>${mob}`:''}
-<h2>${t('yourDevice')}</h2>${r?`<p><span class="badge ${STATUS[r.status][1]}">${st(r.status)}</span> ${esc(r.note)}</p>${fpsLabel(fpsEstimate(g,d))}${r.rows.length?`<div class="tw"><table><tr><th>${t('check')}</th><th>${t('yourDevice')}</th><th>${t('needed')}</th><th>${t('result')}</th></tr>${r.rows.map(x=>`<tr><td>${esc(x.l)}</td><td>${esc(x.have)}</td><td>${esc(x.need)}</td><td>${x.ok===null?t('insufficient'):x.ok?'✔ '+t('pass'):'✘ Fail'}</td></tr>`).join('')}</table></div>`:''}`:empty(t('chooseDevice'))}
+<h2>${t('yourDevice')}</h2>${r?`<p><span class="badge ${STATUS[r.status][1]}">${st(r.status)}</span> ${esc(r.note)}</p>${r.rows.length?`<div class="tw"><table><tr><th>${t('check')}</th><th>${t('yourDevice')}</th><th>${t('needed')}</th><th>${t('result')}</th></tr>${r.rows.map(x=>`<tr><td>${esc(x.l)}</td><td>${esc(x.have)}</td><td>${esc(x.need)}</td><td>${x.ok===null?t('insufficient'):x.ok?'✔ '+t('pass'):'✘ Fail'}</td></tr>`).join('')}</table></div>`:''}`:empty(t('chooseDevice'))}
 <p class="mut">${t('source')}: ${esc(g.src||DB.meta.source)} · ${t('updated')}: ${esc(g.upd||DB.meta.updated)} · <a href="${esc(g.url)}" target="_blank" rel="noopener">${t('official')}</a>. CPU/GPU tiers are this project's approximate classes, not benchmarks.</p>`)};
 PAGES.settings=()=>{const l=S.get('lang','en'),th=S.get('theme','dark');
 view(`<h1>${t('settings')}</h1><label>${t('language')}<select data-s="lang"><option value="en" ${l==='en'?'selected':''}>English</option><option value="ar" ${l==='ar'?'selected':''}>العربية</option><option value="fr" ${l==='fr'?'selected':''}>Français</option></select></label>
