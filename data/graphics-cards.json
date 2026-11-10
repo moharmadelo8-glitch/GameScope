@@ -640,5 +640,86 @@
     "name": "Intel HD Graphics 4600",
     "tier": 1,
     "vram": 0
+  },
+  {
+    "id": "geforce-210",
+    "name": "NVIDIA GeForce 210",
+    "tier": 1,
+    "vram": 1,
+    "vramType": "DDR2/DDR3",
+    "busWidthBit": 64,
+    "tdpW": 30
+  },
+  {
+    "id": "geforce-430",
+    "name": "NVIDIA GeForce GT 430",
+    "tier": 1,
+    "vram": 1,
+    "vramType": "DDR3",
+    "busWidthBit": 128,
+    "tdpW": 49
+  },
+  {
+    "id": "geforce-9800gt",
+    "name": "NVIDIA GeForce 9800 GT",
+    "tier": 1,
+    "vram": 1,
+    "vramType": "GDDR3",
+    "busWidthBit": 256,
+    "tdpW": 105
+  },
+  {
+    "id": "gtx-460",
+    "name": "NVIDIA GeForce GTX 460",
+    "tier": 2,
+    "vram": 1,
+    "vramType": "GDDR5",
+    "busWidthBit": 256,
+    "tdpW": 160
+  },
+  {
+    "id": "gtx-650ti",
+    "name": "NVIDIA GeForce GTX 650 Ti",
+    "tier": 2,
+    "vram": 1,
+    "vramType": "GDDR5",
+    "busWidthBit": 128,
+    "tdpW": 110
+  },
+  {
+    "id": "gtx-660ti",
+    "name": "NVIDIA GeForce GTX 660 Ti",
+    "tier": 3,
+    "vram": 2,
+    "vramType": "GDDR5",
+    "busWidthBit": 192,
+    "tdpW": 150
+  },
+  {
+    "id": "radeon-hd-5770",
+    "name": "AMD Radeon HD 5770",
+    "tier": 2,
+    "vram": 1,
+    "vramType": "GDDR5",
+    "busWidthBit": 128,
+    "tdpW": 108
+  },
+  {
+    "id": "radeon-hd-6870",
+    "name": "AMD Radeon HD 6870",
+    "tier": 2,
+    "vram": 1,
+    "vramType": "GDDR5",
+    "busWidthBit": 256,
+    "tdpW": 151
+  },
+  {
+    "id": "radeon-r7-260x",
+    "name": "AMD Radeon R7 260X",
+    "tier": 2,
+    "vram": 2,
+    "vramType": "GDDR5",
+    "busWidthBit": 128,
+    "tdpW": 115
   }
 ]
