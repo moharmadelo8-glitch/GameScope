@@ -553,5 +553,112 @@
     "id": "ryzen-3-3100",
     "name": "AMD Ryzen 3 3100",
     "tier": 4
+  },
+  {
+    "id": "pentium-e5800",
+    "name": "Intel Pentium E5800",
+    "tier": 1,
+    "cores": 2,
+    "threads": 2,
+    "socket": "LGA775",
+    "baseClockGHz": 3.2,
+    "generation": "Wolfdale"
+  },
+  {
+    "id": "core2quad-q9550",
+    "name": "Intel Core 2 Quad Q9550",
+    "tier": 2,
+    "cores": 4,
+    "threads": 4,
+    "socket": "LGA775",
+    "baseClockGHz": 2.83,
+    "generation": "Yorkfield"
+  },
+  {
+    "id": "i5-2500k",
+    "name": "Intel Core i5-2500K",
+    "tier": 3,
+    "cores": 4,
+    "threads": 4,
+    "socket": "LGA1155",
+    "baseClockGHz": 3.3,
+    "boostClockGHz": 3.7,
+    "generation": "Sandy Bridge"
+  },
+  {
+    "id": "i7-2600k",
+    "name": "Intel Core i7-2600K",
+    "tier": 3,
+    "cores": 4,
+    "threads": 8,
+    "socket": "LGA1155",
+    "baseClockGHz": 3.4,
+    "boostClockGHz": 3.8,
+    "generation": "Sandy Bridge"
+  },
+  {
+    "id": "i5-3570k",
+    "name": "Intel Core i5-3570K",
+    "tier": 3,
+    "cores": 4,
+    "threads": 4,
+    "socket": "LGA1155",
+    "baseClockGHz": 3.4,
+    "boostClockGHz": 3.8,
+    "generation": "Ivy Bridge"
+  },
+  {
+    "id": "i5-4590",
+    "name": "Intel Core i5-4590",
+    "tier": 3,
+    "cores": 4,
+    "threads": 4,
+    "socket": "LGA1150",
+    "baseClockGHz": 3.3,
+    "boostClockGHz": 3.7,
+    "generation": "Haswell"
+  },
+  {
+    "id": "i7-4770s",
+    "name": "Intel Core i7-4770S",
+    "tier": 4,
+    "cores": 4,
+    "threads": 8,
+    "socket": "LGA1150",
+    "baseClockGHz": 3.1,
+    "boostClockGHz": 3.9,
+    "generation": "Haswell"
+  },
+  {
+    "id": "athlon-3000g",
+    "name": "AMD Athlon 3000G",
+    "tier": 2,
+    "cores": 2,
+    "threads": 4,
+    "socket": "AM4",
+    "baseClockGHz": 3.5,
+    "generation": "Zen"
+  },
+  {
+    "id": "ryzen-5-1600",
+    "name": "AMD Ryzen 5 1600",
+    "tier": 4,
+    "cores": 6,
+    "threads": 12,
+    "socket": "AM4",
+    "baseClockGHz": 3.2,
+    "boostClockGHz": 3.6,
+    "generation": "Zen"
+  },
+  {
+    "id": "ryzen-5-2600",
+    "name": "AMD Ryzen 5 2600",
+    "tier": 4,
+    "cores": 6,
+    "threads": 12,
+    "socket": "AM4",
+    "baseClockGHz": 3.4,
+    "boostClockGHz": 3.9,
+    "generation": "Zen+"
   }
 ]
