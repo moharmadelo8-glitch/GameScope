@@ -2,7 +2,7 @@ let SEL='pc';
 const activeDev=()=>S.get('devices',[]).find(d=>d.id===S.get('active'))||null;
 const conName=id=>(DB.dev.consoles.find(c=>c[0]===id)||[id,id])[1];
 const fields=ty=>({
- pc:[['model','Laptop model (optional)','l','macbookModels'],['cpu',t('cpu'),'l','cpus'],['gpu',t('gpu'),'l','gpus'],['ram',t('ram'),'n',[1,1024]],['vram',t('vram'),'n',[0,128]],['os',t('os'),'s',['Windows 10','Windows 11','macOS','Linux']],['storage',t('storage'),'n',[0,100000]],['res',t('resolution')+' ('+t('optional')+')','s',['1280x720','1920x1080','2560x1440','3840x2160']]],
+ pc:[['cpu',t('cpu'),'l','cpus'],['gpu',t('gpu'),'l','gpus'],['ram',t('ram'),'n',[1,1024]],['vram',t('vram'),'n',[0,128]],['os',t('os'),'s',['Windows 10','Windows 11','macOS','Linux']],['storage',t('storage'),'n',[0,100000]],['res',t('resolution')+' ('+t('optional')+')','s',['1280x720','1920x1080','2560x1440','3840x2160']]],
  android:[['brand',t('brand'),'b',DB.dev.androidBrands||[]],['model',t('model'),'l','androidModels'],['soc',t('chipset')+' ('+t('optional')+')','l','mobile-processors'],['ram',t('ram'),'n',[1,64]],['android',t('androidVersion'),'n',[4,20]],['storage',t('freeStorage'),'n',[0,2048]]],
  ios:[['model',t('model'),'s',DB.dev.iphones],['ios',t('iosVersion'),'n',[9,30]],['storage','Free storage (GB)','n',[0,2048]]],
  console:[['model',t('console'),'c']]
@@ -18,7 +18,7 @@ const input=([k,l,kind,x])=>{
 };
 PAGES.select=()=>{
  const T={pc:t('pcLaptop'),android:t('androidPhone'),ios:t('iphone'),console:t('console')};
- const dataLists=`<datalist id="dl_cpus">${DB.cpus.map(c=>`<option value="${esc(c.name)}">`).join('')}</datalist><datalist id="dl_gpus">${DB.gpus.map(c=>`<option value="${esc(c.name)}">`).join('')}</datalist><datalist id="dl_androidModels">${(DB.dev.androidModels||[]).map(c=>`<option value="${esc(c)}">`).join('')}</datalist><datalist id="dl_mobile-processors">${DB.mobileCPUs.map(c=>`<option value="${esc(c.name)}">`).join('')}</datalist><datalist id="dl_macbookModels">${(DB.dev.macbookModels||[]).map(c=>`<option value="${esc(c)}">`).join('')}</datalist>`;
+ const dataLists=`<datalist id="dl_cpus">${DB.cpus.map(c=>`<option value="${esc(c.name)}">`).join('')}</datalist><datalist id="dl_gpus">${DB.gpus.map(c=>`<option value="${esc(c.name)}">`).join('')}</datalist><datalist id="dl_androidModels">${(DB.dev.androidModels||[]).map(c=>`<option value="${esc(c)}">`).join('')}</datalist><datalist id="dl_mobile-processors">${DB.mobileCPUs.map(c=>`<option value="${esc(c.name)}">`).join('')}</datalist>`;
  view(`<h1>${t('select')}</h1><p class="mut">${t('chooseDevice')} ${t('leaveBlank')}.</p>
  <div class="tabs" role="tablist">${Object.entries(T).map(([k,v])=>`<button class="btn ${k===SEL?'pri':''}" role="tab" aria-selected="${k===SEL}" data-a="tab" data-id="${k}">${v}</button>`).join('')}</div>
  ${dataLists}<form data-form="dev"><label>${t('nameOptional')}<input type="text" name="name" maxlength="40" placeholder="e.g. My gaming PC"></label>
@@ -32,7 +32,7 @@ FORMS.dev=fd=>{
  fields(SEL).forEach(([k,,kind])=>{const v=String(fd.get(k)||'').trim();specs[k]=kind==='n'?(v===''?null:Number(v)):v});
  const ds=S.get('devices',[]);
  if(ds.length>=20)return toast(t('limit'));
- const nm=String(fd.get('name')||'').trim()||(SEL==='pc'?(specs.model||specs.gpu||specs.cpu||'My PC'):SEL==='android'?([specs.brand,specs.model].filter(Boolean).join(' ')||'My Android phone'):SEL==='ios'?(specs.model||'My iPhone'):(conName(specs.model)||'My console'));
+ const nm=String(fd.get('name')||'').trim()||(SEL==='pc'?(specs.gpu||specs.cpu||'My PC'):SEL==='android'?([specs.brand,specs.model].filter(Boolean).join(' ')||'My Android phone'):SEL==='ios'?(specs.model||'My iPhone'):(conName(specs.model)||'My console'));
  const d={id:Date.now().toString(36),type:SEL,name:nm,specs};
  ds.push(d);S.set('devices',ds);S.set('active',d.id);toast(t('saveSuccess'));location.hash='find';
 };
