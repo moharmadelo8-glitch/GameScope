@@ -20,21 +20,23 @@ FORMS.dvisescope=fd=>{
  const names=String(fd.get('games')||'').split(/[\n,;]+/).map(x=>x.trim()).filter(Boolean);
  const out=$('#dv-results'); if(names.length!==10){out.innerHTML=empty(t('dvNeedTen'));return}
  const matched=[],unmatched=[];
- names.forEach(n=>{const g=DB.games.find(x=>x.name.toLowerCase()===n.toLowerCase())||DB.games.find(x=>x.name.toLowerCase().includes(n.toLowerCase()));if(g)matched.push(g);else unmatched.push(n)});
+ names.forEach(n=>{const q=n.toLowerCase();const g=DB.games.find(x=>x.name.toLowerCase()===q||(x.aliases||[]).some(a=>a.toLowerCase()===q))||DB.games.find(x=>x.name.toLowerCase().includes(q)||(x.aliases||[]).some(a=>a.toLowerCase().includes(q)));if(g)matched.push(g);else unmatched.push(n)});
  const usable=matched.filter(g=>g.platforms.includes('pc')&&g.pc&&(g.pc.min||g.pc.rec));
  const req=usable.reduce((a,g)=>{const r=g.pc.rec||g.pc.min;a.cpu=Math.max(a.cpu,Number(r.cpu||g.pc.min?.cpu||1));a.gpu=Math.max(a.gpu,Number(r.gpu||g.pc.min?.gpu||1));a.vram=Math.max(a.vram,Number(r.vram||g.pc.min?.vram||0));a.ram=Math.max(a.ram,Number(r.ram||g.pc.min?.ram||8));a.storage=Math.max(a.storage,Number(r.storage||g.pc.min?.storage||0));return a},{cpu:1,gpu:1,vram:0,ram:8,storage:0});
- const gpuNeed=Math.max(req.gpu,DB.gpus.find(x=>x.tier>=req.gpu&&x.vram>=req.vram)?.tier||req.gpu);
- const tiers=[...new Set(DB.gpus.map(x=>x.tier).filter(x=>x>=gpuNeed))].sort((a,b)=>a-b).slice(0,5);
- if(!usable.length||tiers.length<5){out.innerHTML=empty(t('dvInsufficient'));return}
- const picks=tiers.map((tier,i)=>{
-  const gpu=DB.gpus.filter(x=>x.tier===tier&&x.vram>=req.vram).sort((a,b)=>a.name.localeCompare(b.name))[0]||DB.gpus.filter(x=>x.tier===tier).sort((a,b)=>b.vram-a.vram)[0];
-  const cpu=DB.cpus.filter(x=>x.tier>=Math.max(req.cpu,Math.min(10,tier-1))).sort((a,b)=>a.tier-b.tier)[0]||DB.cpus.slice().sort((a,b)=>b.tier-a.tier)[0];
+ const resolution=String(fd.get('resolution')||'1920x1080');
+ const resolutionBoost=resolution==='3840x2160'?2:resolution==='2560x1440'?1:0;
+ const gpuNeed=Math.min(10,req.gpu+resolutionBoost);
+ const eligibleGpus=DB.gpus.filter(x=>x.tier>=gpuNeed&&x.vram>=req.vram).sort((a,b)=>a.tier-b.tier||a.vram-b.vram||a.name.localeCompare(b.name));
+ if(!usable.length||eligibleGpus.length<5){out.innerHTML=empty(t('dvInsufficient'));return}
+ const picks=eligibleGpus.slice(0,5).map((gpu,i)=>{
+  const cpuNeed=Math.max(req.cpu,Math.min(10,gpu.tier-1));
+  const cpu=DB.cpus.filter(x=>x.tier>=cpuNeed).sort((a,b)=>a.tier-b.tier||a.name.localeCompare(b.name))[0]||DB.cpus.slice().sort((a,b)=>b.tier-a.tier)[0];
   const ram=Math.max(16,Math.ceil(req.ram/8)*8),vram=gpu.vram;
-  return {tier,gpu,cpu,ram,vram};
+  return {tier:gpu.tier,gpu,cpu,ram,vram};
  });
  out.innerHTML=`<h2>${t('dvMatched')} (${usable.length}/10)</h2><div class="chips">${matched.map(g=>`<span class="badge mute">${esc(g.name)}</span>`).join(' ')}</div>
  ${unmatched.length?`<p class="mut">${t('dvUnmatched')}: ${unmatched.map(esc).join(', ')}</p>`:''}
  ${matched.filter(g=>!g.platforms.includes('pc')||!g.pc).map(g=>`<p class="banner">${esc(g.name)} — ${t('dvNoPC')}</p>`).join('')}
- <p class="mut">${t('dvBased')} · ${t('dvTier')}: CPU ${req.cpu}/10, GPU ${req.gpu}/10, VRAM ≥ ${req.vram} GB, RAM ≥ ${req.ram} GB</p>
+ <p class="mut">${t('dvBased')} · ${t('dvTier')}: CPU ${req.cpu}/10, GPU ${req.gpu}/10 (+${resolutionBoost}), VRAM ≥ ${req.vram} GB, RAM ≥ ${req.ram} GB · ${resolution}</p>
  <div class="grid build-grid">${picks.map((b,i)=>`<article class="card cb"><span class="badge ${i===0?'ok':'mute'}">${t('dvBuild')} #${i+1}</span><h3>${t('dvTier')} ${b.tier}/10</h3><p><b>${t('dvCPU')}:</b><br>${esc(b.cpu.name)}</p><p><b>${t('dvGPU')}:</b><br>${esc(b.gpu.name)}</p><p><b>${t('dvRAM')}:</b> ${b.ram} GB</p><p><b>${t('dvVRAM')}:</b> ${b.vram} GB</p><p><b>${t('dvStorage')}:</b> ${Math.max(1,Math.ceil(req.storage/500)*500)} GB</p></article>`).join('')}</div>`;
 };
