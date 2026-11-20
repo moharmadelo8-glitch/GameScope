@@ -240,6 +240,11 @@
     "tier": 10
   },
   {
+    "id": "sd-8elite-gen6",
+    "name": "Qualcomm Snapdragon 8 Elite Gen 6",
+    "tier": 10
+  },
+  {
     "id": "dim-6300",
     "name": "MediaTek Dimensity 6300",
     "tier": 4
