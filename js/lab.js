@@ -27,11 +27,13 @@ FORMS.dvisescope=fd=>{
  const resolutionBoost=resolution==='3840x2160'?2:resolution==='2560x1440'?1:0;
  const gpuNeed=Math.min(10,req.gpu+resolutionBoost);
  const eligibleGpus=DB.gpus.filter(x=>x.tier>=gpuNeed&&x.vram>=req.vram).sort((a,b)=>a.tier-b.tier||a.vram-b.vram||a.name.localeCompare(b.name));
- if(!usable.length||eligibleGpus.length<5){out.innerHTML=empty(t('dvInsufficient'));return}
- const picks=eligibleGpus.slice(0,5).map((gpu,i)=>{
-  const cpuNeed=Math.max(req.cpu,Math.min(10,gpu.tier-1));
-  const cpu=DB.cpus.filter(x=>x.tier>=cpuNeed).sort((a,b)=>a.tier-b.tier||a.name.localeCompare(b.name))[0]||DB.cpus.slice().sort((a,b)=>b.tier-a.tier)[0];
-  const ram=Math.max(16,Math.ceil(req.ram/8)*8),vram=gpu.vram;
+ if(!usable.length||!eligibleGpus.length){out.innerHTML=empty(t('dvInsufficient'));return}
+ const cpuPool=DB.cpus.filter(x=>x.tier>=req.cpu).sort((a,b)=>a.tier-b.tier||a.name.localeCompare(b.name));
+ const ramOptions=[16,32,32,64,64].map(n=>Math.max(n,Math.ceil(req.ram/8)*8));
+ const picks=Array.from({length:5},(_,i)=>{
+  const gpu=eligibleGpus[i%eligibleGpus.length];
+  const cpu=cpuPool[Math.min(i,cpuPool.length-1)]||DB.cpus.slice().sort((a,b)=>b.tier-a.tier)[0];
+  const ram=ramOptions[i],vram=gpu.vram;
   return {tier:gpu.tier,gpu,cpu,ram,vram};
  });
  out.innerHTML=`<h2>${t('dvMatched')} (${usable.length}/10)</h2><div class="chips">${matched.map(g=>`<span class="badge mute">${esc(g.name)}</span>`).join(' ')}</div>
