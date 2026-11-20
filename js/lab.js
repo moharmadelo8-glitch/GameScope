@@ -1,4 +1,6 @@
 // GameScope Lab + DviseScope
+const dvBoardFor=cpu=>{const n=cpu.name;if(n.includes('Core Ultra'))return 'Intel B860 / Z890 class';const im=n.match(/i[3579]-(\d{4,5})/);if(im){const gen=Number(im[1].slice(0,2));return gen>=12?'Intel B760 / Z790 class':gen>=10?'Intel B560 / Z590 class':gen>=8?'Intel B365 / Z390 class':'Legacy Intel board — verify exact socket';}const rm=n.match(/Ryzen\s+[3579]\s+(\d{4})/i);if(rm)return Number(rm[1][0])>=7?'AMD AM5 B650 / B850 class':'AMD AM4 B450 / B550 class';return 'Board matched to exact CPU socket';};
+const dvPsuFor=tier=>tier>=10?'850–1000W':tier>=9?'750–850W':tier>=8?'650–750W':tier>=7?'600–650W':tier>=5?'550–600W':'450–550W';
 PAGES.lab=()=>{
  const d=activeDev();
  view(`<section class="hero"><span class="badge mute">GameScope Lab</span><h1>${t('lab')}</h1><p class="mut">${t('labIntro')}</p></section>
@@ -40,5 +42,5 @@ FORMS.dvisescope=fd=>{
  ${unmatched.length?`<p class="mut">${t('dvUnmatched')}: ${unmatched.map(esc).join(', ')}</p>`:''}
  ${matched.filter(g=>!g.platforms.includes('pc')||!g.pc).map(g=>`<p class="banner">${esc(g.name)} — ${t('dvNoPC')}</p>`).join('')}
  <p class="mut">${t('dvBased')} · ${t('dvTier')}: CPU ${req.cpu}/10, GPU ${req.gpu}/10 (+${resolutionBoost}), VRAM ≥ ${req.vram} GB, RAM ≥ ${req.ram} GB · ${resolution}</p>
- <div class="grid build-grid">${picks.map((b,i)=>`<article class="card cb"><span class="badge ${i===0?'ok':'mute'}">${t('dvBuild')} #${i+1}</span><h3>${t('dvTier')} ${b.tier}/10</h3><p><b>${t('dvCPU')}:</b><br>${esc(b.cpu.name)}</p><p><b>${t('dvGPU')}:</b><br>${esc(b.gpu.name)}</p><p><b>${t('dvRAM')}:</b> ${b.ram} GB</p><p><b>${t('dvVRAM')}:</b> ${b.vram} GB</p><p><b>${t('dvStorage')}:</b> ${Math.max(1,Math.ceil(req.storage/500)*500)} GB</p></article>`).join('')}</div>`;
+ <div class="grid build-grid">${picks.map((b,i)=>`<article class="card cb"><span class="badge ${i===0?'ok':'mute'}">${t('dvBuild')} #${i+1}</span><h3>${t('dvTier')} ${b.tier}/10</h3><p><b>${t('dvCPU')}:</b><br>${esc(b.cpu.name)}</p><p><b>${t('dvGPU')}:</b><br>${esc(b.gpu.name)}</p><p><b>${t('dvRAM')}:</b> ${b.ram} GB</p><p><b>${t('dvVRAM')}:</b> ${b.vram} GB</p><p><b>${t('dvBoard')}:</b><br>${esc(dvBoardFor(b.cpu))}</p><p><b>${t('dvPSU')}:</b> ${dvPsuFor(b.tier)} (indicative)</p><p><b>${t('dvStorage')}:</b> ${Math.max(1,Math.ceil(req.storage/500)*500)} GB SSD</p><p><b>${t('dvCase')}:</b> Airflow case, size matched to motherboard</p></article>`).join('')}</div><p class="mut">${t('dvBuildCaution')}</p>`;
 };
