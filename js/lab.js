@@ -1,8 +1,8 @@
 // GameScope Lab and DviseScope
 const dvBoardFor = cpu => {
   const name = String(cpu?.name || '');
-  const intel = name.match(/i[3579]-(\\d{4,5})/i);
-  const ryzen = name.match(/Ryzen\\s+[3579]\\s+(\\d{4})/i);
+  const intel = name.match(/i[3579]-(\d{4,5})/i);
+  const ryzen = name.match(/Ryzen\s+[3579]\s+(\d{4})/i);
   if (/Core Ultra/i.test(name)) return 'Intel B860 / Z890 class';
   if (intel) {
     const generation = Number(intel[1].length === 5 ? intel[1].slice(0, 2) : intel[1][0]);
