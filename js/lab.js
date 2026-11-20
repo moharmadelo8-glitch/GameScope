@@ -1,5 +1,5 @@
 // GameScope Lab + DviseScope
-const dvBoardFor=cpu=>{const n=cpu.name;if(n.includes('Core Ultra'))return 'Intel B860 / Z890 class';const im=n.match(/i[3579]-(\d{4,5})/);if(im){const gen=Number(im[1].slice(0,2));return gen>=12?'Intel B760 / Z790 class':gen>=10?'Intel B560 / Z590 class':gen>=8?'Intel B365 / Z390 class':'Legacy Intel board — verify exact socket';}const rm=n.match(/Ryzen\s+[3579]\s+(\d{4})/i);if(rm)return Number(rm[1][0])>=7?'AMD AM5 B650 / B850 class':'AMD AM4 B450 / B550 class';return 'Board matched to exact CPU socket';};
+const dvBoardFor=cpu=>{const n=cpu.name;if(n.includes('Core Ultra'))return 'Intel B860 / Z890 class';const im=n.match(/i[3579]-(\d{4,5})/);if(im){const gen=Number(im[1].length===5?im[1].slice(0,2):im[1][0]);return gen>=12?'Intel B760 / Z790 class':gen>=10?'Intel B560 / Z590 class':gen>=8?'Intel B365 / Z390 class':'Legacy Intel board — verify exact socket';}const rm=n.match(/Ryzen\s+[3579]\s+(\d{4})/i);if(rm)return Number(rm[1][0])>=7?'AMD AM5 B650 / B850 class':'AMD AM4 B450 / B550 class';return 'Board matched to exact CPU socket';};
 const dvPsuFor=tier=>tier>=10?'850–1000W':tier>=9?'750–850W':tier>=8?'650–750W':tier>=7?'600–650W':tier>=5?'550–600W':'450–550W';
 PAGES.lab=()=>{
  const d=activeDev();
