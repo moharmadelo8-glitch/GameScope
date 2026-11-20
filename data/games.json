@@ -1,7 +1,7 @@
 {
   "notice": "Compatibility requirements are curated guidance. Legacy game baselines and hardware tiers are approximate; FPS and build prices are estimates, not guaranteed benchmark or retail results. Verify current OS support and driver compatibility.",
   "source": "Publisher and developer support pages; see each game's source link",
-  "updated": "2026-11-09",
+  "updated": "2026-11-20",
   "games": [
     {
       "id": "minecraft-java",
@@ -75,6 +75,23 @@
       "url": "https://www.rockstargames.com/gta-v",
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg",
       "fpsBase": 70
+    },
+    {
+      "id": "gta-vi",
+      "name": "Grand Theft Auto VI",
+      "genre": "Action-Adventure",
+      "dev": "Rockstar Games",
+      "date": "2026-11-19",
+      "free": false,
+      "platforms": [
+        "ps5",
+        "xbs"
+      ],
+      "url": "https://www.rockstargames.com/VI",
+      "src": "Rockstar Games official launch announcement and platform listing",
+      "upd": "2026-11-20",
+      "image": "",
+      "pc": null
     },
     {
       "id": "cyberpunk-2077",
