@@ -91,7 +91,12 @@
       "src": "Rockstar Games official launch announcement and platform listing",
       "upd": "2026-11-20",
       "image": "",
-      "pc": null
+      "pc": null,
+      "aliases": [
+        "GTA 6",
+        "GTA VI",
+        "Grand Theft Auto 6"
+      ]
     },
     {
       "id": "cyberpunk-2077",
